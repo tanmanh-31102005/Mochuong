@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Clock, ArrowLeft, Calendar, User, Share2 } from "lucide-react";
 import { MOCK_BLOGS } from "@/features/blog/data/mock-blogs";
@@ -17,6 +18,14 @@ export default async function BlogDetailPage({
   if (!post) {
     notFound();
   }
+
+  const postIndex = MOCK_BLOGS.findIndex((b) => b.slug === slug);
+  const coverImages = [
+    "/images/banner/banner.jpg",
+    "/images/collections/bo-suu-tap-trai-cay.jpg",
+    "/images/collections/bo-suu-tap-hoa.jpg",
+  ];
+  const coverImage = coverImages[postIndex % coverImages.length];
 
   return (
     <div className="py-10 sm:py-16">
@@ -57,8 +66,19 @@ export default async function BlogDetailPage({
           </div>
         </div>
 
+        <div className="relative aspect-[16/8] rounded-2xl overflow-hidden border border-[#E3DACB] shadow-[0_10px_30px_rgba(74,74,74,0.06)]">
+          <Image
+            src={coverImage}
+            alt={post.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
+        </div>
+
         {/* Nội dung chi tiết */}
-        <div className="bg-white p-6 sm:p-10 rounded-3xl border border-beige shadow-soft space-y-6 text-sm text-ink/80 leading-relaxed">
+        <div className="bg-white p-6 sm:p-10 rounded-2xl border border-[#E3DACB] shadow-[0_10px_30px_rgba(74,74,74,0.05)] space-y-6 text-sm text-ink/80 leading-relaxed">
           <p className="text-base font-serif italic text-moss-dark leading-relaxed">
             {post.excerpt}
           </p>

@@ -157,7 +157,7 @@ export const HeroBannerSlider: React.FC = () => {
 
   return (
     <section
-      className="relative w-full bg-[#FAF7F2] border-b border-beige/80 overflow-hidden flex flex-col justify-between lg:h-[calc(100vh-148px)] min-h-[480px]"
+      className="relative w-full bg-[#FAF7F2] border-b border-beige/80 overflow-hidden flex flex-col justify-between min-h-[480px] lg:min-h-[560px]"
       aria-label="Giới thiệu Mộc Hương"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -167,7 +167,7 @@ export const HeroBannerSlider: React.FC = () => {
       {/* ========================================================================= */}
       {/* 1. SPLIT HERO CONTAINER (CĂN GIỮA HOÀN HẢO THEO CHIỀU DỌC TRÊN DESKTOP)    */}
       {/* ========================================================================= */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 my-auto w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           
           {/* CỘT TRÁI: NỘI DUNG THƯƠNG HIỆU (ĐỒNG BỘ THEO SLIDE HIỆN TẠI) - 5 CỘT DESKTOP */}
@@ -176,7 +176,7 @@ export const HeroBannerSlider: React.FC = () => {
             className="lg:col-span-5 flex flex-col items-start text-left z-10"
           >
             {/* Badge Tag nhỏ gọn với icon đồng bộ và animation nhẹ */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-moss/10 border border-moss/20 text-moss text-xs sm:text-sm font-semibold tracking-wide mb-3 sm:mb-4 shadow-2xs transition-all duration-300 animate-[fadeIn_0.35s_ease-out]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-moss/10 border border-moss/20 text-moss-dark text-xs sm:text-sm font-semibold tracking-wide mb-3 sm:mb-4 shadow-2xs transition-all duration-300 animate-[fadeIn_0.35s_ease-out]">
               <Sparkles
                 className={cn(
                   "w-3.5 h-3.5 shrink-0 transition-colors duration-300",
@@ -188,10 +188,10 @@ export const HeroBannerSlider: React.FC = () => {
 
             {/* Semantic H1 Duy Nhất với 2 Dòng Phân Cấp Rõ Ràng */}
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-bold tracking-[-0.01em] leading-[1.2] mb-3 sm:mb-4 max-w-xl transition-all duration-350 delay-75 animate-[fadeIn_0.4s_ease-out]">
-              <span className="block text-moss text-2xl sm:text-3xl lg:text-[32px] font-semibold mb-1 leading-tight">
+              <span className="block text-moss-dark text-2xl sm:text-3xl lg:text-[32px] font-semibold mb-1 leading-tight">
                 {slide.headingLine1}
               </span>
-              <span className="block text-terracotta font-serif leading-tight">
+              <span className="block text-[#A94F35] font-serif leading-tight">
                 {slide.headingLine2}
               </span>
             </h1>
@@ -207,7 +207,7 @@ export const HeroBannerSlider: React.FC = () => {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-7 py-3 text-sm sm:text-base font-bold bg-terracotta text-white hover:bg-terracotta-dark shadow-xs hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 rounded-xl flex items-center justify-center gap-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-7 py-3 text-sm sm:text-base font-bold bg-[#A94F35] text-white hover:bg-[#8E3F2A] shadow-xs hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 rounded-xl flex items-center justify-center gap-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#A94F35] focus-visible:ring-offset-2"
                   aria-label={slide.primaryCta.text}
                 >
                   <span>{slide.primaryCta.text}</span>
@@ -219,7 +219,7 @@ export const HeroBannerSlider: React.FC = () => {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full sm:w-auto min-h-[44px] px-6 py-3 text-sm sm:text-base font-bold border border-moss/50 text-moss hover:bg-moss/10 hover:border-moss transition-all duration-200 rounded-xl flex items-center justify-center cursor-pointer focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2"
+                    className="w-full sm:w-auto min-h-[44px] px-6 py-3 text-sm sm:text-base font-bold border border-moss-dark/50 text-moss-dark hover:bg-moss/10 hover:border-moss-dark transition-all duration-200 rounded-xl flex items-center justify-center cursor-pointer focus-visible:ring-2 focus-visible:ring-moss focus-visible:ring-offset-2"
                     aria-label={slide.secondaryCta.text}
                   >
                     <span>{slide.secondaryCta.text}</span>

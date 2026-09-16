@@ -31,15 +31,19 @@ export function ScrollReveal({
   threshold = 0.15,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
+
     // Tôn trọng prefers-reduced-motion của người dùng
     if (
-      typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       setIsVisible(true);

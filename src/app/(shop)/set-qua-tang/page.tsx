@@ -29,14 +29,14 @@ export default function GiftSetsListingPage() {
     <div className="py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <nav className="text-xs text-ink/60 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-moss">Trang chủ</Link>
+        <nav className="text-xs text-ink/70 mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-moss-dark">Trang chủ</Link>
           <ChevronRight className="w-3.5 h-3.5 text-ink/40" />
           <span className="text-ink font-bold">Set quà tặng</span>
         </nav>
 
         {/* Banner đầu trang set quà tặng */}
-        <div className="bg-linear-to-r from-[#FAF6F2] via-[#FAF4EB] to-[#ECE1D7] p-8 sm:p-12 rounded-3xl border border-beige mb-10 text-center relative overflow-hidden shadow-soft">
+        <div className="bg-white p-8 sm:p-11 rounded-2xl border border-[#E3DACB] mb-10 text-center relative overflow-hidden shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           <div className="max-w-2xl mx-auto space-y-3 z-1 relative">
             <Badge variant="terracotta" size="md">
               QUÀ TẶNG Ý NGHĨA
@@ -54,7 +54,7 @@ export default function GiftSetsListingPage() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center justify-between mb-8 pb-2 border-b border-beige">
+        <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#E3DACB] overflow-x-auto gap-4">
           <div className="flex items-center gap-2">
             <button
               type="button"
@@ -63,7 +63,7 @@ export default function GiftSetsListingPage() {
                 "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer",
                 filterTab === "all"
                   ? "bg-terracotta text-white shadow-xs"
-                  : "bg-white text-ink/70 hover:bg-beige border border-beige"
+                  : "bg-white text-ink/80 hover:bg-beige border border-[#E3DACB]"
               )}
             >
               Tất cả set quà (4)
@@ -75,7 +75,7 @@ export default function GiftSetsListingPage() {
                 "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer",
                 filterTab === "custom"
                   ? "bg-terracotta text-white shadow-xs"
-                  : "bg-white text-ink/70 hover:bg-beige border border-beige"
+                  : "bg-white text-ink/80 hover:bg-beige border border-[#E3DACB]"
               )}
             >
               Set quà tự chọn mùi (2)
@@ -87,14 +87,14 @@ export default function GiftSetsListingPage() {
                 "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer",
                 filterTab === "fixed"
                   ? "bg-terracotta text-white shadow-xs"
-                  : "bg-white text-ink/70 hover:bg-beige border border-beige"
+                  : "bg-white text-ink/80 hover:bg-beige border border-[#E3DACB]"
               )}
             >
               Set chủ đề phối sẵn (2)
             </button>
           </div>
 
-          <span className="text-xs text-ink/60 hidden sm:inline">
+          <span className="text-xs text-ink-muted hidden sm:inline">
             Tất cả set quà đều được miễn phí thiệp viết tay
           </span>
         </div>
@@ -107,7 +107,7 @@ export default function GiftSetsListingPage() {
         </div>
 
         {/* Khối Dịch Vụ Quà Tặng Doanh Nghiệp & Cá Nhân */}
-        <div className="mt-16 bg-white rounded-3xl border border-beige p-8 sm:p-10 shadow-soft">
+        <div className="mt-16 bg-white rounded-2xl border border-[#E3DACB] p-8 sm:p-10 shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="text-xs font-bold text-terracotta uppercase tracking-widest block mb-1">
               Chỉn Chu Từng Chi Tiết
@@ -118,32 +118,32 @@ export default function GiftSetsListingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="p-6 rounded-2xl bg-cream border border-beige space-y-2">
+            <div className="p-6 rounded-xl bg-cream border border-[#E3DACB] space-y-2">
               <div className="w-12 h-12 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center mx-auto">
                 <Package className="w-6 h-6" />
               </div>
               <h3 className="font-serif font-bold text-ink">Đóng Gói Thủ Công Chỉn Chu</h3>
-              <p className="text-xs text-ink/70">
+              <p className="text-xs text-ink/80">
                 Hộp quà dập nhũ vàng, thắt nơ ruy băng lụa sang trọng, sẵn sàng để bạn trao tay người nhận.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-cream border border-beige space-y-2">
+            <div className="p-6 rounded-xl bg-cream border border-[#E3DACB] space-y-2">
               <div className="w-12 h-12 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center mx-auto">
                 <HeartHandshake className="w-6 h-6" />
               </div>
               <h3 className="font-serif font-bold text-ink">Viết Thiệp Tay Miễn Phí</h3>
-              <p className="text-xs text-ink/70">
+              <p className="text-xs text-ink/80">
                 Hỗ trợ viết thiệp tay mộc mạc theo từng lời chúc riêng mà bạn muốn nhắn gửi đến người nhận quà.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-cream border border-beige space-y-2">
+            <div className="p-6 rounded-xl bg-cream border border-[#E3DACB] space-y-2">
               <div className="w-12 h-12 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center mx-auto">
                 <Sparkles className="w-6 h-6" />
               </div>
               <h3 className="font-serif font-bold text-ink">Set Quà Doanh Nghiệp (B2B)</h3>
-              <p className="text-xs text-ink/70">
+              <p className="text-xs text-ink/80">
                 Nhận in ấn logo doanh nghiệp và thiết kế riêng cho đơn vị tri ân đối tác và nhân viên.
               </p>
             </div>

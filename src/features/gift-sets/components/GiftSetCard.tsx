@@ -39,7 +39,7 @@ export const GiftSetCard: React.FC<GiftSetCardProps> = ({
   return (
     <div
       className={cn(
-        "group relative bg-white rounded-3xl border border-beige/80 overflow-hidden hover:border-terracotta/40 hover:shadow-soft transition-all duration-300 flex flex-col justify-between",
+        "group relative bg-white rounded-2xl border border-[#E3DACB] overflow-hidden hover:border-terracotta/45 hover:shadow-[0_14px_34px_rgba(74,74,74,0.09)] transition-all duration-300 flex flex-col justify-between",
         className
       )}
     >
@@ -67,6 +67,8 @@ export const GiftSetCard: React.FC<GiftSetCardProps> = ({
               fill
               className="object-cover"
               sizes="(max-width: 640px) 100vw, 50vw"
+              loading="eager"
+              unoptimized
             />
           ) : (
             <div className="relative w-44 h-32 bg-[#EFE4D6] rounded-2xl border-2 border-[#D8C2AA] shadow-lg flex flex-col items-center justify-center p-3">
@@ -109,7 +111,7 @@ export const GiftSetCard: React.FC<GiftSetCardProps> = ({
             </h3>
           </Link>
 
-          <p className="text-xs text-ink/70 line-clamp-2 mt-1.5 leading-relaxed">
+          <p className="text-xs text-ink/80 line-clamp-2 mt-1.5 leading-relaxed">
             {product.moTaNgan}
           </p>
 
@@ -165,7 +167,7 @@ export const GiftSetCard: React.FC<GiftSetCardProps> = ({
                 </span>
               )}
             </div>
-            <span className="text-[10px] text-moss font-semibold block">
+            <span className="text-[10px] text-moss-dark font-semibold block">
               Bao gồm trọn gói hộp & phụ kiện
             </span>
           </div>

@@ -12,7 +12,7 @@ import { ProductCard } from "@/features/products/components/ProductCard";
 import { ProductFilter } from "@/features/products/components/ProductFilter";
 import { Badge } from "@/shared/components/ui/Badge";
 import { FilterState, SortOption } from "@/features/products/types";
-import { ArrowUpDown, ChevronRight } from "lucide-react";
+import { ArrowUpDown, ChevronRight, SlidersHorizontal, X } from "lucide-react";
 
 /**
  * TUYẾN ĐƯỜNG: /dong-huong/[slug]
@@ -37,6 +37,7 @@ export default function FragranceLineListingPage({
 }
 
 function FragranceLineView({ lineInfo }: { lineInfo: FragranceLineInfo }) {
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [filterState, setFilterState] = useState<FilterState>({
     dongHuong: [lineInfo.id as any],
     minPrice: 0,
@@ -46,6 +47,16 @@ function FragranceLineView({ lineInfo }: { lineInfo: FragranceLineInfo }) {
     searchQuery: "",
   });
   const [sortBy, setSortBy] = useState<SortOption>("newest");
+
+  const resetFilters = () =>
+    setFilterState({
+      dongHuong: [lineInfo.id as any],
+      minPrice: 0,
+      maxPrice: 800000,
+      congDung: [],
+      minRating: 0,
+      searchQuery: "",
+    });
 
   const lineProducts = useMemo(() => {
     return MOCK_PRODUCTS.filter((p) => {
@@ -91,17 +102,17 @@ function FragranceLineView({ lineInfo }: { lineInfo: FragranceLineInfo }) {
     <div className="py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <nav className="text-xs text-ink/60 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-moss">Trang chủ</Link>
+        <nav className="text-xs text-ink/70 mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-moss-dark">Trang chủ</Link>
           <ChevronRight className="w-3.5 h-3.5 text-ink/40" />
-          <Link href="/san-pham" className="hover:text-moss">Sản phẩm</Link>
+          <Link href="/san-pham" className="hover:text-moss-dark">Sản phẩm</Link>
           <ChevronRight className="w-3.5 h-3.5 text-ink/40" />
           <span className="text-ink font-bold">{lineInfo.title}</span>
         </nav>
 
         {/* Banner đầu trang dòng hương */}
         <div
-          className={`bg-linear-to-r ${lineInfo.bgGradient} p-8 sm:p-12 rounded-3xl border border-beige mb-10 text-center relative overflow-hidden shadow-soft`}
+          className={`bg-linear-to-r ${lineInfo.bgGradient} p-8 sm:p-11 rounded-2xl border border-[#E3DACB] mb-10 text-center relative overflow-hidden shadow-[0_10px_30px_rgba(74,74,74,0.05)]`}
         >
           <div className="max-w-2xl mx-auto space-y-3 z-1 relative">
             <Badge variant="moss" size="md">
@@ -126,27 +137,27 @@ function FragranceLineView({ lineInfo }: { lineInfo: FragranceLineInfo }) {
 
         {/* Layout: Sidebar Lọc + Lưới sản phẩm */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-          <div className="lg:col-span-1">
+          <div className="hidden lg:block lg:col-span-1 sticky top-24">
             <ProductFilter
               filterState={filterState}
               onFilterChange={setFilterState}
-              onReset={() =>
-                setFilterState({
-                  dongHuong: [lineInfo.id as any],
-                  minPrice: 0,
-                  maxPrice: 800000,
-                  congDung: [],
-                  minRating: 0,
-                  searchQuery: "",
-                })
-              }
+              onReset={resetFilters}
             />
           </div>
 
           <div className="lg:col-span-3 space-y-6">
             {/* Toolbar */}
-            <div className="bg-white p-4 rounded-2xl border border-beige flex flex-col sm:flex-row items-center justify-between gap-4 shadow-soft">
-              <span className="text-xs text-ink/70">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-[#E3DACB] flex items-center justify-between gap-3 shadow-[0_6px_18px_rgba(74,74,74,0.04)]">
+              <button
+                type="button"
+                onClick={() => setIsMobileFilterOpen(true)}
+                className="lg:hidden inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-cream border border-[#E3DACB] text-xs font-bold text-ink"
+              >
+                <SlidersHorizontal className="w-4 h-4 text-moss-dark" />
+                Bộ lọc
+              </button>
+
+              <span className="text-xs text-ink/70 hidden sm:inline">
                 Hiển thị <strong>{lineProducts.length}</strong> sản phẩm trong dòng {lineInfo.title}
               </span>
 
@@ -168,7 +179,7 @@ function FragranceLineView({ lineInfo }: { lineInfo: FragranceLineInfo }) {
 
             {/* Lưới sản phẩm */}
             {lineProducts.length === 0 ? (
-              <div className="bg-white rounded-3xl border border-beige p-12 text-center">
+              <div className="bg-white rounded-2xl border border-[#E3DACB] p-12 text-center">
                 <p className="font-serif font-bold text-lg text-ink">
                   Không tìm thấy sản phẩm nào trong dòng hương này theo tiêu chí lọc.
                 </p>
@@ -186,6 +197,39 @@ function FragranceLineView({ lineInfo }: { lineInfo: FragranceLineInfo }) {
             )}
           </div>
         </div>
+
+        {isMobileFilterOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden flex">
+            <button
+              type="button"
+              aria-label="Đóng bộ lọc"
+              className="fixed inset-0 bg-black/40 backdrop-blur-xs"
+              onClick={() => setIsMobileFilterOpen(false)}
+            />
+            <div className="relative ml-auto w-full max-w-sm h-full bg-white shadow-2xl flex flex-col z-10">
+              <div className="p-4 border-b border-[#E3DACB] flex items-center justify-between">
+                <span className="font-serif font-bold text-base text-ink-dark">Bộ lọc sản phẩm</span>
+                <button
+                  type="button"
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  aria-label="Đóng bộ lọc"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-ink hover:bg-beige/50"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-4 overflow-y-auto flex-1">
+                <ProductFilter
+                  filterState={filterState}
+                  onFilterChange={setFilterState}
+                  onReset={resetFilters}
+                  isMobileDrawer
+                  onCloseMobile={() => setIsMobileFilterOpen(false)}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

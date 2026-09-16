@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShoppingBag, Check, Sparkles, ArrowRight, Eye, Layers } from "lucide-react";
 import { Product } from "@/features/products/types";
+import { SINGLE_PRODUCTS } from "@/features/products/data/mock-products";
 import { formatCurrency } from "@/shared/utils/format";
 import { Badge } from "@/shared/components/ui/Badge";
 import { RatingStars } from "@/shared/components/ui/RatingStars";
@@ -24,9 +25,14 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   const addItem = useCartStore((state) => state.addItem);
 
   const collectionPrice = product.giaKhuyenMai ?? product.gia;
-  const singleRetailPrice = product.giaLeGoc ?? product.gia;
+  const singleRetailPrice = product.giaLeGoc ?? product.giaLeCongDon ?? product.gia;
   const savingsAmount = product.soTienTietKiem ?? (singleRetailPrice - collectionPrice);
-  const savingsPercent = product.phanTramTietKiem ?? Math.round((savingsAmount / singleRetailPrice) * 100);
+  const statedSavingsPercent = Number.parseInt(product.tietKiem?.match(/\d+/)?.[0] ?? "", 10);
+  const savingsPercent = product.phanTramTietKiem ?? (
+    Number.isNaN(statedSavingsPercent)
+      ? Math.round((savingsAmount / singleRetailPrice) * 100)
+      : statedSavingsPercent
+  );
   const bottleCount = product.includedItems?.length || product.soChai || 3;
 
   const handleQuickAdd = (e: React.MouseEvent) => {
@@ -40,7 +46,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   return (
     <div
       className={cn(
-        "group relative bg-white rounded-3xl border border-beige hover:border-moss/40 hover:shadow-soft transition-all duration-300 flex flex-col justify-between overflow-hidden",
+        "group relative bg-white rounded-2xl border border-[#E3DACB] hover:border-moss/45 hover:shadow-[0_14px_34px_rgba(74,74,74,0.09)] transition-all duration-300 flex flex-col justify-between overflow-hidden",
         className
       )}
     >
@@ -68,22 +74,22 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
               fill
               className="object-cover"
               sizes="(max-width: 640px) 100vw, 50vw"
+              loading="eager"
+              unoptimized
             />
           ) : (
-            <div className="flex items-center justify-center gap-1.5 sm:gap-2 px-4">
-              {Array.from({ length: Math.min(bottleCount, 6) }).map((_, idx) => (
-                <div
-                  key={idx}
-                  className={cn(
-                    "relative flex flex-col items-center transition-transform",
-                    idx === 1 || idx === 2 ? "scale-105 z-2 -mt-1" : "scale-90 opacity-90 z-1"
-                  )}
-                >
-                  <div className="w-3 h-2 bg-[#2C2C2C] rounded-t-xs" />
-                  <div className="w-4.5 h-1 bg-linear-to-r from-[#C29B38] to-[#B38B2E]" />
-                  <div className="w-9 sm:w-11 h-20 sm:h-22 rounded-t-sm rounded-b-xl bg-linear-to-b from-moss/20 via-cream to-moss/30 border border-moss/40 flex flex-col items-center justify-center p-1 shadow-md">
-                    <span className="text-[5px] font-bold text-moss-dark uppercase">30ml</span>
-                  </div>
+            <div className="grid grid-cols-3 w-full h-full">
+              {SINGLE_PRODUCTS.slice(0, 3).map((preview) => (
+                <div key={preview.id} className="relative h-full overflow-hidden border-r border-white/70 last:border-r-0">
+                  <Image
+                    src={preview.hinhAnh.nhan}
+                    alt={preview.tenMuiHuong}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 33vw, 17vw"
+                    loading="eager"
+                    unoptimized
+                  />
                 </div>
               ))}
             </div>
@@ -116,14 +122,14 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
             </h3>
           </Link>
 
-          <p className="text-xs text-ink/70 line-clamp-2 mt-1 leading-relaxed">
+          <p className="text-xs text-ink/80 line-clamp-2 mt-1 leading-relaxed">
             {product.moTaNgan}
           </p>
 
           {/* Included Bottles List */}
           {product.includedItems && (
             <div className="mt-3.5 pt-3 border-t border-beige/60">
-              <span className="text-[11px] font-bold text-ink/70 block mb-1.5">
+              <span className="text-[11px] font-bold text-ink/80 block mb-1.5">
                 Các chai trong bộ ({product.includedItems.length} chai 30ml):
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -142,12 +148,12 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
           {/* Link mua lẻ từng chai */}
           {product.includedItems && (
             <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]">
-              <span className="text-ink/50">Mua lẻ từng chai:</span>
+              <span className="text-ink/70">Mua lẻ từng chai:</span>
               {product.includedItems.map((item, i) => (
                 <Link
                   key={i}
                   href={`/san-pham/${item.slug}`}
-                  className="text-moss font-semibold hover:underline"
+                  className="text-moss-dark font-semibold hover:underline"
                 >
                   {item.scentName}
                   {i < (product.includedItems?.length ?? 0) - 1 ? "," : ""}
@@ -164,11 +170,11 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
               <span className="font-serif font-bold text-lg sm:text-xl text-terracotta">
                 {formatCurrency(collectionPrice)}
               </span>
-              <span className="text-xs text-ink/40 line-through">
+              <span className="text-xs text-ink/50 line-through">
                 {formatCurrency(singleRetailPrice)}
               </span>
             </div>
-            <span className="text-[11px] text-moss font-bold block">
+            <span className="text-[11px] text-moss-dark font-bold block">
               Tiết kiệm {formatCurrency(savingsAmount)} (-{savingsPercent}%)
             </span>
           </div>

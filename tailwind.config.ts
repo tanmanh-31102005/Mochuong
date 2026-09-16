@@ -13,19 +13,19 @@ const config: Config = {
       colors: {
         cream: "#FAF7F2",
         moss: {
-          DEFAULT: "#8A9A5B",
-          dark: "#6E7D47",
-          light: "#A4B478",
+          DEFAULT: "#59683A",
+          dark: "#43502E",
+          light: "#7F8F58",
         },
         terracotta: {
-          DEFAULT: "#C97C5D",
-          dark: "#B06548",
-          light: "#DFA288",
+          DEFAULT: "#A94F35",
+          dark: "#8E3F2A",
+          light: "#C9785F",
         },
         beige: "#F0EAE0",
         ink: {
           DEFAULT: "#4A4A4A",
-          muted: "#7A7A70",
+          muted: "#62625B",
           dark: "#262626",
         },
       },

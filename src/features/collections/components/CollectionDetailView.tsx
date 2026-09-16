@@ -75,10 +75,11 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const collectionPrice = product.giaKhuyenMai ?? product.gia;
-  const singleRetailPrice = product.giaLeGoc ?? product.gia;
+  const singleRetailPrice = product.giaLeGoc ?? product.giaLeCongDon ?? product.gia;
   const bottleCount = product.includedItems?.length || product.soChai || 4;
   const savingsAmount = product.soTienTietKiem ?? (singleRetailPrice - collectionPrice);
   const savingsPercent = product.phanTramTietKiem ?? Math.round((savingsAmount / singleRetailPrice) * 100);
+  const hasSavings = savingsAmount > 0;
 
   // Xây dựng danh sách các slide hiển thị trọn bộ và từng chai đơn
   const gallerySlides = React.useMemo(() => {
@@ -100,7 +101,7 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
         title: "Ảnh Chụp Trọn Bộ",
         type: "cover",
         imageUrl: product.hinhAnh.nhan,
-        badge: `TIẾT KIỆM ${savingsPercent}%`,
+        badge: hasSavings ? `TIẾT KIỆM ${savingsPercent}%` : "BỘ SƯU TẬP TRỌN BỘ",
         badgeVariant: "terracotta",
         subtitle: `Trọn bộ ${bottleCount} chai 30ml nguyên chất từ thiên nhiên`,
       });
@@ -127,7 +128,7 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
     });
 
     return slides;
-  }, [product, savingsPercent, bottleCount]);
+  }, [product, savingsPercent, bottleCount, hasSavings]);
 
   const currentSlide = gallerySlides[activeSlideIndex] || gallerySlides[0];
 
@@ -168,16 +169,16 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
     <div className="py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <nav className="text-xs text-ink/60 mb-8 flex items-center gap-2">
-          <Link href="/" className="hover:text-moss">Trang chủ</Link>
+        <nav aria-label="Đường dẫn trang" className="text-xs text-ink-muted mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-moss-dark">Trang chủ</Link>
           <span>/</span>
-          <Link href="/bo-suu-tap" className="hover:text-moss">Bộ sưu tập</Link>
+          <Link href="/bo-suu-tap" className="hover:text-moss-dark">Bộ sưu tập</Link>
           <span>/</span>
           <span className="text-ink font-bold">{product.tenMuiHuong}</span>
         </nav>
 
         {/* Khung Thông Tin Chính: Visual Combo + Purchase Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 bg-white p-6 sm:p-10 rounded-3xl border border-beige shadow-soft">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 bg-white p-5 sm:p-8 rounded-2xl border border-[#E3DACB] shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           {/* Cột Trái: Visual Gallery Cuộn Dọc & Ảnh Tràn Viền (Theo đúng mẫu Image 1 & Image 3) */}
           <div className="lg:col-span-6 space-y-3">
             <div className="flex flex-col-reverse sm:flex-row gap-3 sm:gap-4 items-stretch">
@@ -321,9 +322,11 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
                 <span className="text-xs font-bold uppercase tracking-wider text-moss">
                   Bộ sưu tập trọn bộ theo dòng hương
                 </span>
-                <span className="text-xs font-bold bg-terracotta/10 text-terracotta px-2.5 py-1 rounded-full">
-                  Tiết kiệm {formatCurrency(savingsAmount)}
-                </span>
+                {hasSavings && (
+                  <span className="text-xs font-bold bg-terracotta/10 text-terracotta px-2.5 py-1 rounded-full">
+                    Tiết kiệm {formatCurrency(savingsAmount)}
+                  </span>
+                )}
               </div>
 
               <h1 className="font-serif text-2xl sm:text-3xl font-bold text-moss-dark">
@@ -342,12 +345,16 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
                 <span className="font-serif font-bold text-2xl sm:text-3xl text-terracotta">
                   {formatCurrency(collectionPrice)}
                 </span>
-                <span className="text-sm text-ink/40 line-through">
-                  {formatCurrency(singleRetailPrice)}
-                </span>
-                <Badge variant="terracotta" size="sm">
-                  TIẾT KIỆM {savingsPercent}%
-                </Badge>
+                {hasSavings && (
+                  <>
+                    <span className="text-sm text-ink/50 line-through">
+                      {formatCurrency(singleRetailPrice)}
+                    </span>
+                    <Badge variant="terracotta" size="sm">
+                      TIẾT KIỆM {savingsPercent}%
+                    </Badge>
+                  </>
+                )}
               </div>
 
               <p className="text-xs sm:text-sm text-ink/80 leading-relaxed italic border-l-2 border-moss pl-3">
@@ -496,7 +503,7 @@ const CollectionFixedDetailView: React.FC<{ product: Product }> = ({ product }) 
         </div>
 
         {/* Tab thông tin bổ sung: Hướng dẫn sử dụng & Thành phần chuẩn */}
-        <div className="mt-12 bg-white rounded-3xl border border-beige p-6 sm:p-10 shadow-soft">
+        <div className="mt-10 bg-white rounded-2xl border border-[#E3DACB] p-6 sm:p-8 shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           <div className="flex border-b border-beige gap-6 mb-6">
             <button
               type="button"

@@ -67,7 +67,7 @@ export const IncludedItemsList: React.FC<IncludedItemsListProps> = ({
                   Dung tích {item.capacity}
                 </span>
                 {item.description && (
-                  <p className="text-[11px] text-ink/70 mt-0.5 leading-snug">
+                  <p className="text-[11px] text-ink-muted mt-0.5 leading-snug">
                     {item.description}
                   </p>
                 )}
@@ -82,7 +82,7 @@ export const IncludedItemsList: React.FC<IncludedItemsListProps> = ({
       })}
     </div>
 
-      <div className="pt-2 border-t border-[#F0E0CA]/60 flex flex-wrap items-center gap-4 text-[11px] text-ink/70">
+      <div className="pt-2 border-t border-[#F0E0CA]/60 flex flex-wrap items-center gap-4 text-[11px] text-ink-muted">
         <span className="flex items-center gap-1">
           <CheckCircle2 className="w-3.5 h-3.5 text-moss" />
           Hộp quà thủ công &amp; nơ lụa

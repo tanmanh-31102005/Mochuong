@@ -21,8 +21,8 @@ export const Badge: React.FC<BadgeProps> = ({
     "moss-subtle": "bg-[#EBF2E8] text-[#24371C] border border-[#C8DEC2]",
     terracotta: "bg-terracotta text-white shadow-xs border border-white/20",
     cream: "bg-cream text-ink border border-beige",
-    beige: "bg-beige text-ink",
-    outline: "border border-ink/20 text-ink",
+    beige: "bg-beige text-ink-dark",
+    outline: "border border-ink/25 text-ink-dark",
     danger: "bg-red-100 text-red-700 border border-red-200",
   };
 

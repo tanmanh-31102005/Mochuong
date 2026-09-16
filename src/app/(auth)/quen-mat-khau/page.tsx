@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
                 <h3 className="font-bold text-base text-moss-dark">
                   Đã Gửi Hướng Dẫn
                 </h3>
-                <p className="text-xs sm:text-sm text-ink/75 leading-relaxed">
+                <p className="text-xs sm:text-sm text-ink/80 leading-relaxed">
                   {message}
                 </p>
               </div>

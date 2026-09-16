@@ -144,10 +144,10 @@ function SingleProductDetailView({ product }: { product: Product }) {
     <div className="py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <nav className="text-xs text-ink/60 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-moss">Trang chủ</Link>
+        <nav className="text-xs text-ink/70 mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-moss-dark">Trang chủ</Link>
           <span>/</span>
-          <Link href="/san-pham" className="hover:text-moss">Sản phẩm</Link>
+          <Link href="/san-pham" className="hover:text-moss-dark">Sản phẩm</Link>
           <span>/</span>
           <span className="text-ink font-bold line-clamp-1">{product.tenMuiHuong}</span>
         </nav>
@@ -407,7 +407,7 @@ function SingleProductDetailView({ product }: { product: Product }) {
         </div>
 
         {/* Khối Tabs Chi Tiết: Thành Phần, Hướng Dẫn, Chính Sách */}
-        <div className="mt-12 bg-white rounded-3xl border border-beige p-6 sm:p-10 shadow-soft">
+        <div className="mt-10 bg-white rounded-2xl border border-[#E3DACB] p-6 sm:p-8 shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           <div className="flex border-b border-beige gap-2 sm:gap-6 overflow-x-auto">
             <button
               type="button"
@@ -492,7 +492,7 @@ function SingleProductDetailView({ product }: { product: Product }) {
         </div>
 
         {/* Khối Đánh Giá Khách Hàng */}
-        <div className="mt-12 bg-white rounded-3xl border border-beige p-6 sm:p-10 shadow-soft">
+        <div className="mt-10 bg-white rounded-2xl border border-[#E3DACB] p-6 sm:p-8 shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           <div className="flex items-center justify-between pb-6 border-b border-beige mb-6">
             <div>
               <h3 className="font-serif font-bold text-xl text-moss-dark">

@@ -45,9 +45,9 @@ export const Header: React.FC = () => {
         - Topbar nằm trọn vẹn bên trong header cố định, không bị cuộn trượt mất hay đẩy header di chuyển.
         - Chiều cao & padding được khóa cố định, loại bỏ hoàn toàn hiện tượng co giãn/nhảy giật khi cuộn trang.
       */}
-      <header className="sticky top-0 z-50 w-full bg-cream/98 backdrop-blur-md border-b border-beige shadow-xs select-none">
+      <header className="sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-md border-b border-beige shadow-xs select-none">
         {/* Topbar thông báo ưu đãi - Căn tràn đều toàn màn hình */}
-        <div className="bg-moss-dark text-white/90 text-xs py-1.5 px-4 sm:px-6 lg:px-10 border-b border-black/10">
+        <div className="bg-[#59683A] text-white text-xs py-1.5 px-4 sm:px-6 lg:px-10 border-b border-black/10">
           <div className="w-full flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-terracotta-light animate-pulse" />
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
                 Ưu đãi ra mắt: <strong>Miễn phí vận chuyển</strong> toàn quốc cho đơn từ 300.000đ | Nhập <strong>MOCHUONG10</strong> giảm 10%
               </span>
             </div>
-            <div className="hidden md:flex items-center gap-4 text-xs font-medium">
+            <div className="hidden md:flex items-center gap-4 text-xs font-semibold">
               <a
                 href={`tel:${siteConfig.hotline.replace(/\D/g, "")}`}
                 className="flex items-center gap-1.5 hover:text-white transition-colors"
@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
           - THANH TÌM KIẾM Ở GIỮA (CÂN ĐỐI, THẨM MỸ)
           - CỤM TIỆN ÍCH SÁT PHẢI (HOTLINE, YÊU THÍCH, TÀI KHOẢN, GIỎ HÀNG)
         */}
-        <div className="w-full px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4 sm:gap-6 py-2">
+        <div className="w-full px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4 sm:gap-6 py-1.5">
           {/* Cụm Logo SÁT MÉP TRÁI */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
@@ -95,7 +95,7 @@ export const Header: React.FC = () => {
               className="group inline-flex items-center shrink-0"
               aria-label="Mộc Hương — Hương thơm từ thiên nhiên"
             >
-              <div className="relative aspect-[754/513] h-[68px] sm:h-[78px] md:h-[84px]">
+              <div className="relative aspect-[754/513] h-[54px] sm:h-[60px] md:h-[64px]">
                 <Image
                   src="/images/logo/logo-clean.png"
                   alt="Mộc Hương — Hương thơm từ thiên nhiên"
@@ -125,7 +125,7 @@ export const Header: React.FC = () => {
                 <Phone className="w-4 h-4 text-moss" />
               </div>
               <div className="text-left text-xs leading-tight">
-                <div className="text-[10px] text-ink/60 font-medium">Hotline CSKH</div>
+                <div className="text-[10px] text-ink-muted font-semibold">Hotline CSKH</div>
                 <div className="font-extrabold text-moss-dark">{siteConfig.hotline}</div>
               </div>
             </a>
@@ -147,7 +147,7 @@ export const Header: React.FC = () => {
             <button
               type="button"
               onClick={toggleCart}
-              className="p-2 sm:px-3.5 sm:py-2 bg-moss/10 hover:bg-moss text-moss hover:text-white rounded-xl transition-all flex items-center gap-2 relative shadow-2xs active:scale-95 cursor-pointer"
+              className="p-2 sm:px-3.5 sm:py-2 bg-moss/10 hover:bg-moss-dark text-moss-dark hover:text-white rounded-xl transition-all flex items-center gap-2 relative shadow-2xs active:scale-95 cursor-pointer"
               aria-label="Giỏ hàng"
             >
               <div className="relative">
@@ -170,7 +170,7 @@ export const Header: React.FC = () => {
 
         {/* HÀNG 2: Thanh Menu Điều Hướng Danh Mục — Thiết kế nhỏ xíu vừa vặn ôm sát dòng chữ */}
         <div className="w-full px-4 sm:px-6 lg:px-10 border-t border-beige/60">
-          <nav className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1.5 py-1">
+          <nav aria-label="Điều hướng chính" className="hidden lg:flex items-center justify-center gap-0.5 xl:gap-1.5 py-1">
             {MAIN_NAVIGATION.map((item) => {
               const isActive =
                 item.href === "/"
@@ -183,10 +183,10 @@ export const Header: React.FC = () => {
                     <Link
                       href={item.href}
                       className={cn(
-                        "inline-flex items-center gap-1 px-3 py-1 text-xs xl:text-[13px] font-bold transition-all rounded-md leading-tight",
+                        "inline-flex items-center gap-1 px-3 py-1.5 text-xs xl:text-[13px] font-bold transition-all rounded-md leading-tight",
                         isActive
-                          ? "text-moss bg-moss/10"
-                          : "text-ink/85 hover:text-moss hover:bg-beige/40"
+                          ? "text-moss-dark bg-moss/12"
+                          : "text-ink/90 hover:text-moss-dark hover:bg-beige/50"
                       )}
                     >
                       <span>{item.label}</span>
@@ -229,10 +229,10 @@ export const Header: React.FC = () => {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "relative inline-flex items-center px-3 py-1 text-xs xl:text-[13px] font-bold transition-all rounded-md leading-tight",
+                    "relative inline-flex items-center px-3 py-1.5 text-xs xl:text-[13px] font-bold transition-all rounded-md leading-tight",
                     isActive
-                      ? "text-moss bg-moss/10"
-                      : "text-ink/85 hover:text-moss hover:bg-beige/40"
+                      ? "text-moss-dark bg-moss/12"
+                      : "text-ink/90 hover:text-moss-dark hover:bg-beige/50"
                   )}
                 >
                   <span>{item.label}</span>
@@ -286,7 +286,7 @@ export const Header: React.FC = () => {
               </div>
 
               {/* Navigation Links */}
-              <nav className="mt-4 space-y-1">
+              <nav aria-label="Điều hướng trên thiết bị di động" className="mt-4 space-y-1">
                 {MAIN_NAVIGATION.map((item) => {
                   if (item.children) {
                     return (
@@ -313,7 +313,7 @@ export const Header: React.FC = () => {
                                 key={sub.href}
                                 href={sub.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block py-1.5 text-xs font-semibold text-ink/75 hover:text-moss"
+                                className="block py-1.5 text-xs font-semibold text-ink/80 hover:text-moss-dark"
                               >
                                 {sub.label}
                               </Link>

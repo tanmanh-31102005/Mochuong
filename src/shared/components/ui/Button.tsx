@@ -31,11 +31,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-terracotta text-white hover:bg-terracotta-dark shadow-md hover:shadow-lg active:scale-[0.98] focus:ring-terracotta/40",
+        "bg-[#A94F35] text-white hover:bg-[#8E3F2A] shadow-md hover:shadow-lg active:scale-[0.98] focus:ring-[#A94F35]/40",
       secondary:
-        "bg-moss text-white hover:bg-moss-dark shadow-sm hover:shadow active:scale-[0.98] focus:ring-moss/40",
+        "bg-moss-dark text-white hover:bg-[#59683A] shadow-sm hover:shadow active:scale-[0.98] focus:ring-moss/40",
       outline:
-        "border-2 border-moss text-moss hover:bg-moss hover:text-white active:scale-[0.98] focus:ring-moss/30",
+        "border-2 border-moss-dark text-moss-dark hover:bg-moss-dark hover:text-white active:scale-[0.98] focus:ring-moss/30",
       ghost:
         "text-ink hover:bg-beige/60 hover:text-moss active:scale-[0.98] focus:ring-moss/20",
       danger:

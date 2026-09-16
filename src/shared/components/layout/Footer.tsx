@@ -29,37 +29,37 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-beige text-ink border-t border-beige/80 pt-16 pb-12">
+    <footer className="bg-[#F2EBDD] text-ink border-t border-[#E0D6C7] pt-14 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Badges / Guarantees banner inside Footer */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-12 border-b border-ink/10">
-          <div className="flex items-center gap-4 bg-white/60 p-4 rounded-2xl border border-white">
+          <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-[#E3DACB] shadow-[0_8px_20px_rgba(74,74,74,0.04)]">
             <div className="w-12 h-12 rounded-xl bg-moss/10 flex items-center justify-center text-moss shrink-0">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-moss-dark">100% Tinh dầu thiên nhiên</h4>
-              <p className="text-xs text-ink/70">An toàn, lành tính, không hương liệu tổng hợp</p>
+              <p className="font-bold text-sm text-moss-dark">100% Tinh dầu thiên nhiên</p>
+              <p className="text-xs text-ink-muted">An toàn, lành tính, không hương liệu tổng hợp</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 bg-white/60 p-4 rounded-2xl border border-white">
+          <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-[#E3DACB] shadow-[0_8px_20px_rgba(74,74,74,0.04)]">
             <div className="w-12 h-12 rounded-xl bg-moss/10 flex items-center justify-center text-moss shrink-0">
               <RotateCcw className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-moss-dark">Đổi trả trong 7 ngày</h4>
-              <p className="text-xs text-ink/70">Đổi mới miễn phí nếu lỗi do nhà sản xuất</p>
+              <p className="font-bold text-sm text-moss-dark">Đổi trả trong 7 ngày</p>
+              <p className="text-xs text-ink-muted">Đổi mới miễn phí nếu lỗi do nhà sản xuất</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 bg-white/60 p-4 rounded-2xl border border-white">
+          <div className="flex items-center gap-4 bg-white p-4 rounded-xl border border-[#E3DACB] shadow-[0_8px_20px_rgba(74,74,74,0.04)]">
             <div className="w-12 h-12 rounded-xl bg-moss/10 flex items-center justify-center text-moss shrink-0">
               <Truck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-sm text-moss-dark">Giao nhanh toàn quốc</h4>
-              <p className="text-xs text-ink/70">Miễn phí giao hàng cho đơn từ 300.000đ</p>
+              <p className="font-bold text-sm text-moss-dark">Giao nhanh toàn quốc</p>
+              <p className="text-xs text-ink-muted">Miễn phí giao hàng cho đơn từ 300.000đ</p>
             </div>
           </div>
         </div>
@@ -79,11 +79,11 @@ export const Footer: React.FC = () => {
               </div>
             </Link>
 
-            <p className="text-sm text-ink/80 leading-relaxed max-w-md">
+            <p className="text-sm text-ink-muted leading-relaxed max-w-md">
               Mộc Hương ra đời từ mong muốn mang đến những khoảnh khắc thư giãn giản đơn trong cuộc sống bận rộn hằng ngày, qua 18 nốt hương xịt thơm 30ml thuần khiết từ thiên nhiên.
             </p>
 
-            <div className="space-y-2 text-xs text-ink/80 pt-2">
+            <div className="space-y-2 text-xs text-ink-muted pt-2">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-moss shrink-0 mt-0.5" />
                 <span>Địa chỉ: {siteConfig.address}</span>
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
                   href={`https://zalo.me/${siteConfig.zalo.replace(/\D/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-moss hover:underline"
+                  className="hover:text-moss-dark hover:underline"
                 >
                   Zalo: {siteConfig.zalo}
                 </a>
@@ -115,15 +115,15 @@ export const Footer: React.FC = () => {
 
           {/* Dòng hương */}
           <div className="space-y-3">
-            <h4 className="font-serif font-bold text-base text-moss-dark tracking-wide">
+            <h2 className="font-serif font-bold text-base text-moss-dark tracking-wide">
               4 Dòng Hương (30ml)
-            </h4>
+            </h2>
             <ul className="space-y-2 text-sm">
               {FOOTER_LINKS.fragranceLines.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-ink/80 hover:text-moss hover:translate-x-1 inline-block transition-all"
+                    className="text-ink-muted hover:text-moss-dark hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -134,15 +134,15 @@ export const Footer: React.FC = () => {
 
           {/* Chính sách */}
           <div className="space-y-3">
-            <h4 className="font-serif font-bold text-base text-moss-dark tracking-wide">
+            <h2 className="font-serif font-bold text-base text-moss-dark tracking-wide">
               Chính Sách &amp; Hỗ Trợ
-            </h4>
+            </h2>
             <ul className="space-y-2 text-sm">
               {FOOTER_LINKS.policies.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-ink/80 hover:text-moss hover:translate-x-1 inline-block transition-all"
+                    className="text-ink-muted hover:text-moss-dark hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -153,10 +153,10 @@ export const Footer: React.FC = () => {
 
           {/* Đăng ký nhận tin & Bản tin */}
           <div className="space-y-4">
-            <h4 className="font-serif font-bold text-base text-moss-dark tracking-wide">
+            <h2 className="font-serif font-bold text-base text-moss-dark tracking-wide">
               Đăng Ký Nhận Tin
-            </h4>
-            <p className="text-xs text-ink/70 leading-relaxed">
+            </h2>
+            <p className="text-xs text-ink-muted leading-relaxed">
               Nhận ngay voucher <strong>10%</strong> cho đơn hàng đầu tiên và thông tin sản phẩm mới từ Mộc Hương.
             </p>
 
@@ -194,7 +194,7 @@ export const Footer: React.FC = () => {
                   href={siteConfig.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white hover:bg-moss/10 border border-beige/80 text-xs font-medium text-ink/80 hover:text-moss transition-all group shadow-2xs"
+                  className="inline-flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white hover:bg-moss/10 border border-[#E3DACB] text-xs font-semibold text-ink-muted hover:text-moss-dark transition-all group shadow-2xs"
                   aria-label="Fanpage Facebook Mộc Hương"
                 >
                   <svg className="w-4 h-4 text-[#1877F2] shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@ export const Footer: React.FC = () => {
                   href={siteConfig.socials.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white hover:bg-moss/10 border border-beige/80 text-xs font-medium text-ink/80 hover:text-moss transition-all group shadow-2xs"
+                  className="inline-flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white hover:bg-moss/10 border border-[#E3DACB] text-xs font-semibold text-ink-muted hover:text-moss-dark transition-all group shadow-2xs"
                   aria-label="Kênh TikTok Mộc Hương Handmade"
                 >
                   <svg className="w-4 h-4 text-ink shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -220,7 +220,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-ink/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ink/60 gap-4">
+        <div className="border-t border-ink/15 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ink-muted gap-4">
           <p>© {new Date().getFullYear()} Mộc Hương. All rights reserved.</p>
           <p className="flex items-center gap-1">
             <span>Tinh dầu thiên nhiên nguyên chất 30ml</span>

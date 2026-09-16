@@ -13,7 +13,7 @@ export default function AllProductsPage() {
   return (
     <Suspense
       fallback={
-        <div className="py-20 text-center font-serif text-moss font-bold">
+        <div className="py-20 text-center font-serif text-moss-dark font-bold">
           Đang tải bộ sưu tập sản phẩm Mộc Hương...
         </div>
       }
@@ -118,8 +118,8 @@ function AllProductsContent() {
     <div className="py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Banner đầu trang */}
-        <div className="bg-linear-to-r from-[#EBF2E5] via-cream to-[#FDF3E5] p-6 sm:p-10 rounded-2xl border border-beige mb-8 text-center shadow-xs">
-          <span className="text-xs font-bold text-moss uppercase tracking-widest block mb-2">
+        <div className="bg-white p-6 sm:p-9 rounded-2xl border border-[#E3DACB] mb-8 text-center shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
+          <span className="text-xs font-bold text-moss-dark uppercase tracking-widest block mb-2">
             Bộ Sưu Tập Toàn Diện
           </span>
           <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-moss-dark mb-3">
@@ -130,14 +130,14 @@ function AllProductsContent() {
           </p>
 
           {/* Type Switcher Tabs */}
-          <div className="mt-6 inline-flex flex-wrap items-center justify-center p-1 bg-white rounded-xl border border-beige/80 shadow-xs gap-1">
+          <div className="mt-6 inline-flex flex-wrap items-center justify-center p-1 bg-cream rounded-xl border border-[#E3DACB] gap-1">
             <button
               type="button"
               onClick={() => setActiveTab("ALL")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === "ALL"
                   ? "bg-moss text-white shadow-xs"
-                  : "text-ink/70 hover:text-ink hover:bg-cream"
+                  : "text-ink/80 hover:text-ink hover:bg-white"
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
@@ -150,7 +150,7 @@ function AllProductsContent() {
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === "SINGLE"
                   ? "bg-moss text-white shadow-xs"
-                  : "text-ink/70 hover:text-ink hover:bg-cream"
+                  : "text-ink/80 hover:text-ink hover:bg-white"
               }`}
             >
               <span>Chai lẻ 30ml ({singleCount})</span>
@@ -162,7 +162,7 @@ function AllProductsContent() {
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === "COLLECTION"
                   ? "bg-moss text-white shadow-xs"
-                  : "text-ink/70 hover:text-ink hover:bg-cream"
+                  : "text-ink/80 hover:text-ink hover:bg-white"
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
@@ -175,7 +175,7 @@ function AllProductsContent() {
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 activeTab === "GIFT_SET"
                   ? "bg-moss text-white shadow-xs"
-                  : "text-ink/70 hover:text-ink hover:bg-cream"
+                  : "text-ink/80 hover:text-ink hover:bg-white"
               }`}
             >
               <Gift className="w-3.5 h-3.5" />
@@ -198,7 +198,7 @@ function AllProductsContent() {
           {/* Cột Phải: Toolbar & Grid Sản Phẩm */}
           <div className="lg:col-span-3 space-y-5">
             {/* Toolbar: Bộ lọc mobile toggle + Sắp xếp */}
-            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-beige/80 flex items-center justify-between gap-3 shadow-xs">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-[#E3DACB] flex items-center justify-between gap-3 shadow-[0_6px_18px_rgba(74,74,74,0.04)]">
               {/* Mobile Filter Trigger */}
               <button
                 type="button"
@@ -268,7 +268,7 @@ function AllProductsContent() {
 
             {/* Grid Sản Phẩm */}
             {filteredProducts.length === 0 ? (
-              <div className="bg-white rounded-2xl border border-beige/80 p-10 text-center space-y-3">
+              <div className="bg-white rounded-2xl border border-[#E3DACB] p-10 text-center space-y-3">
                 <p className="font-serif font-bold text-base sm:text-lg text-ink-dark">
                   Không tìm thấy sản phẩm nào phù hợp với bộ lọc.
                 </p>

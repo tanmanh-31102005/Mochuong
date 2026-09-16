@@ -2,15 +2,15 @@
 
 @theme {
   --color-cream: #FAF7F2;
-  --color-moss: #8A9A5B;
-  --color-moss-dark: #6E7D47;
-  --color-moss-light: #A4B478;
-  --color-terracotta: #C97C5D;
-  --color-terracotta-dark: #B06548;
-  --color-terracotta-light: #DFA288;
+  --color-moss: #59683A;
+  --color-moss-dark: #43502E;
+  --color-moss-light: #7F8F58;
+  --color-terracotta: #A94F35;
+  --color-terracotta-dark: #8E3F2A;
+  --color-terracotta-light: #C9785F;
   --color-beige: #F0EAE0;
   --color-ink: #4A4A4A;
-  --color-ink-muted: #7A7A70;
+  --color-ink-muted: #62625B;
   --color-ink-dark: #262626;
 
   --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
@@ -20,15 +20,15 @@
 @layer base {
   :root {
     --color-cream: #FAF7F2;
-    --color-moss: #8A9A5B;
-    --color-moss-dark: #6E7D47;
-    --color-moss-light: #A4B478;
-    --color-terracotta: #C97C5D;
-    --color-terracotta-dark: #B06548;
-    --color-terracotta-light: #DFA288;
+    --color-moss: #59683A;
+    --color-moss-dark: #43502E;
+    --color-moss-light: #7F8F58;
+    --color-terracotta: #A94F35;
+    --color-terracotta-dark: #8E3F2A;
+    --color-terracotta-light: #C9785F;
     --color-beige: #F0EAE0;
     --color-ink: #4A4A4A;
-    --color-ink-muted: #7A7A70;
+    --color-ink-muted: #62625B;
     --color-ink-dark: #262626;
   }
 
@@ -53,7 +53,7 @@
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #8A9A5B;
+    background: #59683A;
   }
 }
 

@@ -157,7 +157,7 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg font-bold text-[#354622] group-hover:text-moss transition-colors">
                     Thảo mộc – Thanh lọc
                   </h3>
-                  <p className="text-xs text-[#4E6235]/85 mt-1.5 leading-relaxed">
+                  <p className="text-xs text-[#43502E] mt-1.5 leading-relaxed">
                     Sả Chanh, Tràm gió, Tràm trắng, Hương thảo giúp thanh lọc không khí, xua muỗi và tỉnh táo tinh thần.
                   </p>
                 </div>
@@ -205,7 +205,7 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg font-bold text-[#6D4214] group-hover:text-amber-700 transition-colors">
                     Trái cây – Tươi mát
                   </h3>
-                  <p className="text-xs text-[#8C5821]/85 mt-1.5 leading-relaxed">
+                  <p className="text-xs text-[#754317] mt-1.5 leading-relaxed">
                     Bưởi, Quýt, Cam, Chanh, Dứa, Bạc Hà mang lại cảm giác sảng khoái tức thì và khử mùi hiệu quả.
                   </p>
                 </div>
@@ -316,7 +316,7 @@ export default function HomePage() {
                       Liệu Pháp Thơm Dịu Cho Phòng Ngủ
                     </h3>
                   </div>
-                  <p className="text-xs text-ink/75 leading-relaxed">
+                  <p className="text-xs text-ink/80 leading-relaxed">
                     Chiết xuất từ hoa oải hương và hoa hồng tự nhiên giúp giảm căng thẳng sau ngày dài, xịt đệm ga gối tạo cảm giác thơm mát sạch lành.
                   </p>
                   <div className="space-y-1.5 pt-1 text-xs text-ink-dark font-medium">
@@ -613,7 +613,7 @@ export default function HomePage() {
                   <div className="pt-3 border-t border-beige/60">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="font-bold text-xs text-moss-dark">{review.authorName}</h4>
+                        <h3 className="font-bold text-xs text-moss-dark">{review.authorName}</h3>
                         {review.userRole && (
                           <p className="text-[10px] text-ink-muted mt-0.5">{review.userRole}</p>
                         )}

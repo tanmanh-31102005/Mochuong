@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles, ShieldCheck, Heart, Leaf, ArrowRight, Droplets, Smile, Timer } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import { PRODUCT_SHARED_CONFIG } from "@/core/config/product-shared.config";
@@ -22,8 +23,19 @@ export default function AboutPage() {
           </p>
         </div>
 
+        <div className="relative aspect-[2/1] rounded-2xl overflow-hidden border border-[#E3DACB] shadow-[0_10px_30px_rgba(74,74,74,0.06)]">
+          <Image
+            src="/images/banner/banner.jpg"
+            alt="Bộ sản phẩm tinh dầu xịt thơm Mộc Hương"
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+        </div>
+
         {/* Nội dung chính thức từ Mộc Hương */}
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-beige shadow-soft space-y-6 text-xs sm:text-sm text-ink/80 leading-relaxed">
+        <div className="bg-white p-8 sm:p-12 rounded-2xl border border-[#E3DACB] shadow-[0_10px_30px_rgba(74,74,74,0.05)] space-y-6 text-xs sm:text-sm text-ink/80 leading-relaxed">
           <p className="text-base sm:text-lg font-serif italic text-moss-dark leading-relaxed border-l-4 border-moss pl-4 py-1">
             &ldquo;Mộc Hương ra đời từ mong muốn mang đến những khoảnh khắc thư giãn giản đơn trong cuộc sống bận rộn hằng ngày...&rdquo;
           </p>

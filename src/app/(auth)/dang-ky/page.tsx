@@ -175,7 +175,7 @@ function RegisterForm() {
             onChange={(e) => setFormData({ ...formData, agreeTerms: e.target.checked })}
             className="accent-moss w-4 h-4 rounded mt-0.5"
           />
-          <span className="text-xs text-ink/75 leading-relaxed">
+          <span className="text-xs text-ink/80 leading-relaxed">
             Tôi đồng ý với{" "}
             <Link href="/chinh-sach-bao-mat" className="text-moss font-bold hover:underline">
               Chính sách bảo mật

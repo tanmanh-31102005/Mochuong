@@ -90,12 +90,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div
       className={cn(
-        "group relative bg-white rounded-2xl border border-beige/80 p-3 sm:p-3.5 hover:border-moss/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between",
+        "group relative bg-white rounded-2xl border border-[#E7DED0] p-2.5 sm:p-3 hover:border-moss/50 hover:shadow-[0_12px_28px_rgba(74,74,74,0.08)] transition-all duration-300 flex flex-col justify-between",
         className
       )}
     >
       {/* Top Visual Container: Khung nền trung gian màu kem nhạt (1.1, 1.2, 1.4) */}
-      <div className="relative w-full aspect-square sm:aspect-[4/5] bg-[#FAF6EE] rounded-[14px] sm:rounded-[16px] p-3 sm:p-4 border border-[#ECE4D8] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full aspect-square sm:aspect-[4/5] bg-[#F8F1E7] rounded-[14px] sm:rounded-[16px] p-2.5 sm:p-3 border border-[#ECE1D2] flex items-center justify-center overflow-hidden">
         {/* Badges Overlay (1.4, 2.3) */}
         <div className="absolute top-2.5 left-2.5 z-20 flex flex-col gap-1.5 items-start pointer-events-none">
           {product.badge && (
@@ -141,7 +141,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Khung ảnh nổi khối nhẹ, bo góc, tỷ lệ chuẩn và hiệu ứng hover (1.1, 1.2, 1.4) */}
         <Link
           href={getProductUrl(product)}
-          className="relative w-full h-full rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.06)] border border-black/5 bg-white flex items-center justify-center"
+          className="relative w-full h-full rounded-xl overflow-hidden border border-black/5 bg-white flex items-center justify-center"
         >
           {product.hinhAnh?.nhan && !product.hinhAnh.nhan.includes("placeholder") ? (
             <div className="relative w-full h-full overflow-hidden">
@@ -149,6 +149,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 src={product.hinhAnh.nhan}
                 alt={product.tenMuiHuong}
                 fill
+                unoptimized
+                loading="eager"
                 className="object-cover object-center scale-100 group-hover:scale-103 transition-transform duration-300 ease-out"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
@@ -230,7 +232,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </Link>
 
           {/* Emotional note */}
-          <p className="text-xs sm:text-[13px] text-ink/75 line-clamp-1 mt-1 leading-relaxed">
+          <p className="text-xs sm:text-[13px] text-ink/80 line-clamp-1 mt-1 leading-relaxed">
             {product.moTaNgan}
           </p>
 
@@ -262,10 +264,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             disabled={isAdded}
             aria-label={`Thêm ${product.tenMuiHuong} vào giỏ hàng`}
             className={cn(
-              "min-h-[38px] sm:min-h-[40px] px-3 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all duration-200 cursor-pointer border",
+              "min-h-[42px] px-3 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all duration-200 cursor-pointer border",
               isAdded
-                ? "bg-moss text-white border-moss"
-                : "bg-moss/10 hover:bg-moss text-moss hover:text-white border-moss/20 hover:border-moss"
+                ? "bg-moss-dark text-white border-moss-dark"
+                : "bg-moss/10 hover:bg-moss-dark text-moss-dark hover:text-white border-moss/30 hover:border-moss-dark"
             )}
           >
             {isAdded ? (

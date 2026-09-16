@@ -58,11 +58,11 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({
 
   return (
     <div
-      className={`bg-white rounded-2xl border border-beige/80 p-5 sm:p-6 shadow-xs space-y-6 ${className || ""}`}
+      className={`bg-white rounded-2xl border border-[#E3DACB] p-5 sm:p-6 shadow-[0_8px_24px_rgba(74,74,74,0.05)] space-y-6 ${className || ""}`}
     >
       <div className="flex items-center justify-between pb-3.5 border-b border-beige/70">
         <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-moss" />
+          <Filter className="w-4 h-4 text-moss-dark" />
           <h3 className="font-serif font-bold text-base text-ink-dark">
             Bộ Lọc Sản Phẩm
           </h3>
@@ -119,7 +119,7 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({
             return (
               <label
                 key={opt.value}
-                className="flex items-center gap-2.5 text-xs text-ink/80 cursor-pointer hover:text-moss select-none py-0.5"
+                className="flex items-center gap-2.5 text-xs text-ink/85 cursor-pointer hover:text-moss-dark select-none py-0.5"
               >
                 <input
                   type="checkbox"
@@ -147,8 +147,8 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({
               onClick={() => handleRatingChange(star)}
               className={`w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-colors cursor-pointer ${
                 filterState.minRating === star
-                  ? "bg-moss/10 text-moss font-bold border border-moss/20"
-                  : "text-ink/70 hover:bg-beige/40 border border-transparent"
+                  ? "bg-moss/10 text-moss-dark font-bold border border-moss/30"
+                  : "text-ink/80 hover:bg-beige/50 border border-transparent"
               }`}
             >
               <span>Từ {star} sao trở lên</span>
