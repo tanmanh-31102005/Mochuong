@@ -25,9 +25,6 @@ import { cn } from "@/shared/utils/cn";
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
-  if (pathname?.startsWith("/admin")) {
-    return null;
-  }
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuthStore();
   const [mobileProductDropdownOpen, setMobileProductDropdownOpen] = useState(false);
@@ -40,6 +37,10 @@ export const Header: React.FC = () => {
 
   const toggleCart = useCartStore((state) => state.toggleCart);
   const totalItems = useCartStore((state) => state.getTotalItems());
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <>

@@ -19,9 +19,6 @@ import { FOOTER_LINKS } from "@/core/constants/navigation";
 
 export const Footer: React.FC = () => {
   const pathname = usePathname();
-  if (pathname?.startsWith("/admin")) {
-    return null;
-  }
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -32,6 +29,10 @@ export const Footer: React.FC = () => {
       setNewsletterEmail("");
     }
   };
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-[#F2EBDD] text-ink border-t border-[#E0D6C7] pt-14 pb-10">
