@@ -30,7 +30,7 @@ Nước hoa truyền thống chứa cồn nồng độ cao và tinh dầu đậm
       seoTitle: "Cách sử dụng xịt thơm quần áo đúng cách",
       seoDescription:
         "Khám phá cách sử dụng xịt thơm quần áo đúng cách từ Mộc Hương giúp lưu hương thơm ngát tự nhiên, khử mùi ẩm mốc và bảo vệ sợi vải suốt cả ngày dài.",
-      focusKeyword: "cách sử dụng xịt thơm quần áo",
+      focusKeyword: "Xịt thơm quần áo",
       canonicalUrl: "https://mochuong.vn/blog/cach-su-dung-xit-thom-quan-ao",
       noIndex: false,
     },

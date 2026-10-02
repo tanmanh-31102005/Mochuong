@@ -50,7 +50,7 @@ export default function CreateNewPostPage() {
   const [slug, setSlug] = useState("");
   const [seoTitle, setSeoTitle] = useState("");
   const [seoDescription, setSeoDescription] = useState("");
-  const [focusKeyword, setFocusKeyword] = useState("xịt thơm quần áo");
+  const [focusKeyword, setFocusKeyword] = useState("Xịt thơm quần áo");
 
   // UI state
   const [isSaved, setIsSaved] = useState(false);
@@ -91,8 +91,26 @@ export default function CreateNewPostPage() {
   };
 
   const isSlugValid = slug ? /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) : false;
-  const hasKeywordInTitle = focusKeyword && seoTitle.toLowerCase().includes(focusKeyword.toLowerCase().trim());
-  const hasKeywordInDesc = focusKeyword && seoDescription.toLowerCase().includes(focusKeyword.toLowerCase().trim());
+
+  // Chuẩn hóa tiếng Việt không dấu để so khớp từ khóa linh hoạt
+  const normalizeText = (text: string) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[đĐ]/g, "d")
+      .trim();
+
+  // Kiểm tra linh hoạt (không bắt buộc cứng, người dùng có thể đổi từ khóa tùy ý)
+  const hasKeywordInTitle = !focusKeyword.trim()
+    ? true
+    : seoTitle.toLowerCase().includes(focusKeyword.toLowerCase().trim()) ||
+      normalizeText(seoTitle).includes(normalizeText(focusKeyword));
+
+  const hasKeywordInDesc = !focusKeyword.trim()
+    ? true
+    : seoDescription.toLowerCase().includes(focusKeyword.toLowerCase().trim()) ||
+      normalizeText(seoDescription).includes(normalizeText(focusKeyword));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -427,23 +445,42 @@ export default function CreateNewPostPage() {
 
             <div className="p-6 space-y-6">
               {/* Focus Keyword */}
-              <div className="p-3.5 bg-[#FAF6EE] rounded-2xl border border-[#E8DEC8] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-ink/70">
-                    Từ khóa chính (Focus Keyword):
-                  </span>
-                  <input
-                    type="text"
-                    value={focusKeyword}
-                    onChange={(e) => setFocusKeyword(e.target.value)}
-                    placeholder="xịt thơm quần áo"
-                    className="px-2.5 py-1 bg-white text-terracotta rounded-lg font-bold text-xs border border-beige focus:outline-none"
-                  />
+              <div className="p-4 bg-[#FAF6EE] rounded-2xl border border-[#E8DEC8] space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex-1 flex flex-col sm:flex-row sm:items-center gap-2">
+                    <label className="text-xs font-bold text-ink/80 shrink-0 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-terracotta" />
+                      <span>Từ khóa chính (Focus Keyword):</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={focusKeyword}
+                      onChange={(e) => setFocusKeyword(e.target.value)}
+                      placeholder="VD: Xịt thơm quần áo, tinh dầu bưởi, xịt phòng..."
+                      className="w-full sm:w-64 px-3 py-1.5 bg-white text-terracotta font-bold text-xs rounded-xl border border-beige focus:outline-none focus:border-moss shadow-2xs"
+                    />
+                  </div>
+                  <div className="text-[11px] text-ink/70">
+                    {focusKeyword.trim() ? (
+                      hasKeywordInTitle && hasKeywordInDesc ? (
+                        <span className="flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          <span>Từ khóa &quot;{focusKeyword}&quot; đã tối ưu chuẩn On-Page</span>
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1 text-amber-700 font-medium bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          <span>Gợi ý chèn thêm &quot;{focusKeyword}&quot; vào Tiêu đề/Mô tả</span>
+                        </span>
+                      )
+                    ) : (
+                      <span className="text-ink/50 italic">Có thể tùy chọn nhập từ khóa theo nhu cầu</span>
+                    )}
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-bold">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>{hasKeywordInTitle && hasKeywordInDesc ? "Đã tối ưu 100%" : "Cần có trong tiêu đề & mô tả"}</span>
-                </div>
+                <p className="text-[11px] text-ink/50">
+                  * Hệ thống không khóa cứng: mặc định gợi ý &quot;Xịt thơm quần áo&quot;, bạn có thể nhập bất kỳ từ khóa nào khác tùy theo chủ đề bài viết.
+                </p>
               </div>
 
               {/* 1. Đường dẫn (slug) */}
@@ -523,11 +560,7 @@ export default function CreateNewPostPage() {
                 </div>
 
                 <div className="text-[11px] text-ink/65 italic">
-                  Quy tắc: có chứa từ khóa chính (ví dụ: &quot;
-                  <span className="font-semibold text-terracotta">
-                    Cách sử dụng xịt thơm quần áo đúng cách
-                  </span>
-                  &quot;)
+                  Quy tắc: nên có từ khóa chính để tối ưu hóa thứ hạng hiển thị trên Google
                 </div>
 
                 <input
@@ -543,12 +576,12 @@ export default function CreateNewPostPage() {
                   {hasKeywordInTitle ? (
                     <span className="flex items-center gap-1 text-emerald-700 font-bold">
                       <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Đã chứa từ khóa chính trong tiêu đề</span>
+                      <span>{focusKeyword ? `Đã chứa từ khóa chính "${focusKeyword}"` : "Tiêu đề hợp lệ"}</span>
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 text-amber-700 font-semibold">
                       <AlertCircle className="w-3.5 h-3.5" />
-                      <span>Nên chèn từ khóa: &quot;{focusKeyword}&quot;</span>
+                      <span>Gợi ý chèn từ khóa: &quot;{focusKeyword}&quot;</span>
                     </span>
                   )}
                   <span className="text-ink/40">Khuyến nghị: 50–60 ký tự</span>
@@ -592,12 +625,12 @@ export default function CreateNewPostPage() {
                   {hasKeywordInDesc ? (
                     <span className="flex items-center gap-1 text-emerald-700 font-bold">
                       <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Đã chứa từ khóa chính trong mô tả</span>
+                      <span>{focusKeyword ? `Đã chứa từ khóa chính "${focusKeyword}"` : "Mô tả hợp lệ"}</span>
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 text-amber-700 font-semibold">
                       <AlertCircle className="w-3.5 h-3.5" />
-                      <span>Nên chèn từ khóa: &quot;{focusKeyword}&quot;</span>
+                      <span>Gợi ý chèn từ khóa: &quot;{focusKeyword}&quot;</span>
                     </span>
                   )}
                   <span className="text-ink/40">Khuyến nghị: 120–160 ký tự</span>

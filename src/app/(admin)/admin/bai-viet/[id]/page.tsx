@@ -74,7 +74,7 @@ export default function AdminBlogEditPage() {
       setSlug(post.seo?.slug || post.slug);
       setSeoTitle(post.seo?.seoTitle || post.title);
       setSeoDescription(post.seo?.seoDescription || post.excerpt);
-      if (post.seo?.focusKeyword) {
+      if (post.seo?.focusKeyword && post.seo.focusKeyword !== "cách sử dụng xịt thơm quần áo") {
         setFocusKeyword(post.seo.focusKeyword);
       } else {
         setFocusKeyword("Xịt thơm quần áo");
