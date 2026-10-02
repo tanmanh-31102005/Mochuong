@@ -137,6 +137,8 @@ export default function AdminBlogEditPage() {
   // Xử lý Lưu cài đặt SEO & Bài viết
   const handleSave = () => {
     const finalPostId = post?.id || postId;
+    const cleanSlug = (slug || "").trim().replace(/^\/+|\/+$/g, "");
+
     updatePost(finalPostId, {
       title,
       excerpt,
@@ -144,13 +146,13 @@ export default function AdminBlogEditPage() {
       category,
       status,
       coverImage,
-      slug,
+      slug: cleanSlug,
       seo: {
-        slug,
+        slug: cleanSlug,
         seoTitle,
         seoDescription,
         focusKeyword: focusKeyword.trim() || "Xịt thơm quần áo",
-        canonicalUrl: `https://mochuong.vn/blog/${slug}`,
+        canonicalUrl: `https://mochuong.vn/blog/${cleanSlug}`,
         noIndex: false,
       },
     });
@@ -249,6 +251,17 @@ export default function AdminBlogEditPage() {
           >
             <Trash2 className="w-4 h-4" />
           </button>
+
+          {/* View Post Button */}
+          <Link
+            href={`/blog/${(slug || "").trim().replace(/^\/+|\/+$/g, "")}`}
+            target="_blank"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-beige bg-white text-ink/80 hover:text-moss hover:bg-cream text-xs font-bold transition-all shadow-xs"
+            title="Xem bài viết trên web"
+          >
+            <Eye className="w-4 h-4 text-moss" />
+            <span className="hidden sm:inline">Xem bài viết</span>
+          </Link>
 
           {/* Save Button */}
           <button

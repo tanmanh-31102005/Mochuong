@@ -146,7 +146,7 @@ export default function AdminBlogListPage() {
 
                   <td className="py-4 px-4 font-mono text-[11px] text-moss-dark max-w-xs truncate">
                     <span className="bg-[#FAF6EE] px-2.5 py-1 rounded-lg border border-beige/80 inline-block max-w-full truncate">
-                      /{post.seo.slug}
+                      /{((post.seo?.slug || post.slug) || "").replace(/^\/+|\/+$/g, "")}
                     </span>
                   </td>
 
@@ -192,7 +192,7 @@ export default function AdminBlogListPage() {
                       </Link>
 
                       <Link
-                        href={`/blog/${post.seo.slug}`}
+                        href={`/blog/${((post.seo?.slug || post.slug) || "").replace(/^\/+|\/+$/g, "")}`}
                         target="_blank"
                         className="p-1.5 rounded-xl border border-beige text-ink/60 hover:text-moss hover:bg-cream transition-colors"
                         title="Xem bài viết trên web"

@@ -4,6 +4,43 @@ export type { BlogPost };
 
 export const MOCK_BLOGS: BlogPost[] = [
   {
+    id: "blog-xit-thom-quan-ao",
+    slug: "xit-thom-quan-ao",
+    title: "Xịt Thơm Quần Áo Thiên Nhiên: Mẹo Khử Mùi & Lưu Hương Suốt Ngày Dài",
+    excerpt:
+      "Thơm mát từ thiên nhiên. Khám phá dòng xịt thơm quần áo chiết xuất thảo mộc Mộc Hương giúp khử sạch vi khuẩn, ướp hương thơm mát và giữ nếp vải mềm mại suốt ngày dài.",
+    content: `Xịt thơm quần áo đang trở thành vật bất ly thân của những người yêu thích sự chỉn chu và phong cách sống tinh tế. Không chỉ giúp trang phục luôn ngát hương, xịt thơm gốc tinh dầu thiên nhiên Mộc Hương còn có khả năng kháng khuẩn, khử sạch mùi ẩm mốc sau khi giặt hoặc khi thời tiết nồm ẩm.
+
+1. Vì sao nên dùng xịt thơm quần áo thay vì nước hoa thông thường?
+Nước hoa truyền thống chứa cồn nồng độ cao và tinh dầu đậm đặc, khi xịt trực tiếp lên sợi vải sáng màu (như lụa, linen, cotton trắng) rất dễ gây ố vàng hoặc làm biến đổi chất vải. Ngược lại, xịt thơm quần áo Mộc Hương được chiết xuất từ hydrosol và tinh dầu tự nhiên, dịu nhẹ và an toàn tuyệt đối cho mọi chất liệu vải.
+
+2. Quy trình 4 bước sử dụng xịt thơm quần áo chuẩn chuyên gia:
+- Bước 1: Giữ khoảng cách xịt từ 15cm đến 20cm để hạt sương tỏa đều mịn màng, không làm ướt sũng một điểm.
+- Bước 2: Tập trung xịt vào các vị trí lưu hương lý tưởng như cổ áo, vạt áo trong, gấu tay và lớp lót áo khoác.
+- Bước 3: Thời điểm vàng để xịt là ngay sau khi ủi đồ hoặc 10 phút trước khi bước ra ngoài.
+- Bước 4: Để quần áo khô tự nhiên trong không khí thoáng mát trước khi mặc hoặc cất vào tủ đồ.
+
+3. Bí quyết bảo quản và lựa chọn mùi hương theo phong cách:
+- Buổi sáng tươi mới: Chọn nốt hương Cam Ngọt & Bạc Hà giúp tinh thần sảng khoái, năng động.
+- Buổi tối thư giãn: Chọn nốt hương Hoa Oải Hương (Lavender) tạo cảm giác êm dịu, dễ chịu.
+- Nơi trang trọng: Chọn Gỗ Đàn Hương hoặc Quế Hồi để mang lại phong thái đĩnh đạc, sang trọng.`,
+    category: "Mẹo hay cuộc sống",
+    publishedAt: "02/10/2026",
+    readTime: "3 phút đọc",
+    coverImage: "/images/banner/banner-3.jpg",
+    author: "Mộc Hương Team",
+    status: "published",
+    seo: {
+      slug: "xit-thom-quan-ao",
+      seoTitle: "Xịt thơm quần áo | Thơm mát từ thiên nhiên - Mộc Hương",
+      seoDescription:
+        "Xịt thơm quần áo chiết xuất từ tinh dầu thiên nhiên giúp khử mùi ẩm mốc, giữ hương thơm mát tinh tế và bảo vệ sợi vải suốt cả ngày dài.",
+      focusKeyword: "Xịt thơm quần áo",
+      canonicalUrl: "https://mochuong.vn/blog/xit-thom-quan-ao",
+      noIndex: false,
+    },
+  },
+  {
     id: "blog-draft-1",
     slug: "cach-su-dung-xit-thom-quan-ao",
     title: "Cách Sử Dụng Xịt Thơm Quần Áo Đúng Cách Để Lưu Hương Bền Lâu",

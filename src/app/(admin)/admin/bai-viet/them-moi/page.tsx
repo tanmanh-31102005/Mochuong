@@ -120,7 +120,7 @@ export default function CreateNewPostPage() {
       return;
     }
 
-    const finalSlug =
+    const rawSlug =
       slug.trim() ||
       title
         .toLowerCase()
@@ -130,6 +130,7 @@ export default function CreateNewPostPage() {
         .replace(/[^a-z0-9\s-]/g, "")
         .trim()
         .replace(/\s+/g, "-");
+    const finalSlug = rawSlug.replace(/^\/+|\/+$/g, "");
 
     const finalSeoTitle = seoTitle.trim() || title.trim();
     const finalSeoDesc = seoDescription.trim() || excerpt.trim() || "Bài viết chia sẻ từ Mộc Hương.";
