@@ -43,7 +43,7 @@ export default function BlogListPage() {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-cream">
                 <Image
-                  src={BLOG_IMAGES[index % BLOG_IMAGES.length]}
+                  src={post.coverImage || "/images/banner/banner.jpg"}
                   alt={post.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

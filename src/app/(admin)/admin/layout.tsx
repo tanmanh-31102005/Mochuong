@@ -143,14 +143,32 @@ export default function AdminLayout({
               <CheckCircle2 className="w-3 h-3" /> Sẵn sàng
             </span>
           </div>
-          <div className="space-y-1 text-[11px] text-ink/70">
-            <div className="flex justify-between">
+          <div className="space-y-1.5 text-[11px] text-ink/70">
+            <div className="flex items-center justify-between">
               <span>Sitemap XML:</span>
-              <span className="font-mono text-moss-dark">/sitemap.xml</span>
+              <a
+                href="/sitemap.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-moss-dark font-bold hover:underline flex items-center gap-1 bg-cream/70 px-2 py-0.5 rounded"
+                title="Bấm để mở xem tệp /sitemap.xml"
+              >
+                <span>/sitemap.xml</span>
+                <ExternalLink className="w-2.5 h-2.5 text-terracotta" />
+              </a>
             </div>
-            <div className="flex justify-between">
+            <div className="flex items-center justify-between">
               <span>Robots:</span>
-              <span className="font-mono text-moss-dark">/robots.txt</span>
+              <a
+                href="/robots.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-moss-dark font-bold hover:underline flex items-center gap-1 bg-cream/70 px-2 py-0.5 rounded"
+                title="Bấm để mở xem tệp /robots.txt"
+              >
+                <span>/robots.txt</span>
+                <ExternalLink className="w-2.5 h-2.5 text-terracotta" />
+              </a>
             </div>
           </div>
         </div>

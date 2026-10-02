@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   AlertCircle,
   Sparkles,
+  Trash2,
 } from "lucide-react";
 import { useBlogStore } from "@/features/blog/store/blog-store";
 import { Badge } from "@/shared/components/ui/Badge";
@@ -198,6 +199,19 @@ export default function AdminBlogListPage() {
                       >
                         <Eye className="w-4 h-4" />
                       </Link>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (confirm(`Bạn có chắc chắn muốn xóa bài viết "${post.title}"?`)) {
+                            useBlogStore.getState().deletePost(post.id);
+                          }
+                        }}
+                        className="p-1.5 rounded-xl border border-red-200 text-red-500 hover:bg-red-50 transition-colors cursor-pointer"
+                        title="Xóa bài viết"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
                     </div>
                   </td>
                 </tr>

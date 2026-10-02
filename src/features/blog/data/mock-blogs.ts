@@ -22,14 +22,14 @@ Nước hoa truyền thống chứa cồn nồng độ cao và tinh dầu đậm
     category: "Mẹo hay cuộc sống",
     publishedAt: "02/10/2026",
     readTime: "4 phút đọc",
-    coverImage: "/images/banner/blog-2.jpg",
+    coverImage: "/images/banner/banner-2.jpg",
     author: "Mộc Hương Team",
     status: "draft",
     seo: {
       slug: "cach-su-dung-xit-thom-quan-ao",
       seoTitle: "Cách sử dụng xịt thơm quần áo đúng cách",
       seoDescription:
-        "Khám phá cách sử dụng xịt thơm quần áo đúng cách từ Mộc Hương giúp khử mùi ẩm mốc, giữ hương thơm hoa cỏ tự nhiên thơm ngát và mềm sợi vải suốt cả ngày.",
+        "Khám phá cách sử dụng xịt thơm quần áo đúng cách từ Mộc Hương giúp lưu hương thơm ngát tự nhiên, khử mùi ẩm mốc và bảo vệ sợi vải suốt cả ngày dài.",
       focusKeyword: "cách sử dụng xịt thơm quần áo",
       canonicalUrl: "https://mochuong.vn/blog/cach-su-dung-xit-thom-quan-ao",
       noIndex: false,
@@ -45,7 +45,7 @@ Nước hoa truyền thống chứa cồn nồng độ cao và tinh dầu đậm
     category: "Kiến thức mùi hương",
     publishedAt: "15/02/2026",
     readTime: "4 phút đọc",
-    coverImage: "/images/banner/blog-1.jpg",
+    coverImage: "/images/banner/banner.jpg",
     author: "Mộc Hương Team",
     status: "published",
     seo: {
@@ -68,7 +68,7 @@ Nước hoa truyền thống chứa cồn nồng độ cao và tinh dầu đậm
     category: "Mẹo hay cuộc sống",
     publishedAt: "10/02/2026",
     readTime: "3 phút đọc",
-    coverImage: "/images/banner/blog-2.jpg",
+    coverImage: "/images/collections/bo-suu-tap-thao-moc.jpg",
     author: "Chuyên gia Mộc Hương",
     status: "published",
     seo: {
@@ -91,7 +91,7 @@ Nước hoa truyền thống chứa cồn nồng độ cao và tinh dầu đậm
     category: "Liệu pháp hương thơm",
     publishedAt: "02/02/2026",
     readTime: "5 phút đọc",
-    coverImage: "/images/banner/blog-3.jpg",
+    coverImage: "/images/collections/bo-suu-tap-hoa.jpg",
     author: "Mộc Hương R&D",
     status: "published",
     seo: {

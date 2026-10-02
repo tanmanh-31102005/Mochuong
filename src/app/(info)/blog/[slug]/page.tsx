@@ -63,13 +63,7 @@ export default async function BlogDetailPage({
     notFound();
   }
 
-  const postIndex = MOCK_BLOGS.findIndex((b) => b.slug === slug || b.seo?.slug === slug);
-  const coverImages = [
-    "/images/banner/banner.jpg",
-    "/images/collections/bo-suu-tap-trai-cay.jpg",
-    "/images/collections/bo-suu-tap-hoa.jpg",
-  ];
-  const coverImage = coverImages[Math.max(0, postIndex) % coverImages.length];
+  const coverImage = post.coverImage || "/images/banner/banner.jpg";
 
   const jsonLd = {
     "@context": "https://schema.org",

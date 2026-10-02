@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import {
   ArrowLeft,
@@ -14,19 +15,31 @@ import {
   Eye,
   Copy,
   ExternalLink,
-  HelpCircle,
   Check,
   RefreshCw,
+  ImageIcon,
+  Trash2,
 } from "lucide-react";
 import { useBlogStore } from "@/features/blog/store/blog-store";
-import { Button } from "@/shared/components/ui/Button";
+
+const AVAILABLE_IMAGES = [
+  { url: "/images/banner/banner.jpg", label: "Banner 1 - Thiên nhiên hoa cỏ" },
+  { url: "/images/banner/banner-2.jpg", label: "Banner 2 - Ưu đãi ra mắt" },
+  { url: "/images/banner/banner-3.jpg", label: "Banner 3 - Xịt thơm quần áo" },
+  { url: "/images/collections/bo-suu-tap-thao-moc.jpg", label: "Bộ sưu tập Thảo mộc" },
+  { url: "/images/collections/bo-suu-tap-hoa.jpg", label: "Bộ sưu tập Hoa dịu nhẹ" },
+  { url: "/images/collections/bo-suu-tap-trai-cay.jpg", label: "Bộ sưu tập Trái cây" },
+  { url: "/images/collections/bo-suu-tap-am-nong.jpg", label: "Bộ sưu tập Ấm nồng" },
+  { url: "/images/products/sa-chanh-30ml.jpg", label: "Sản phẩm Sả Chanh 30ml" },
+  { url: "/images/products/bac-ha-30ml.jpg", label: "Sản phẩm Bạc Hà 30ml" },
+];
 
 export default function AdminBlogEditPage() {
   const params = useParams();
   const router = useRouter();
   const postId = params.id as string;
 
-  const { getPostById, updatePost, updateSeo } = useBlogStore();
+  const { getPostById, updatePost, deletePost } = useBlogStore();
   const post = getPostById(postId);
 
   // Form states
@@ -35,12 +48,14 @@ export default function AdminBlogEditPage() {
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("Mẹo hay cuộc sống");
   const [status, setStatus] = useState<"draft" | "published">("draft");
+  const [coverImage, setCoverImage] = useState("/images/banner/banner-2.jpg");
+  const [customImageUrl, setCustomImageUrl] = useState("");
 
-  // SEO states (3 trọng tâm người dùng yêu cầu)
+  // SEO states (Từ khóa chính mặc định là "Xịt thơm quần áo", nhưng cho phép người dùng tự do nhập bất kỳ từ khóa nào)
   const [slug, setSlug] = useState("");
   const [seoTitle, setSeoTitle] = useState("");
   const [seoDescription, setSeoDescription] = useState("");
-  const [focusKeyword, setFocusKeyword] = useState("cách sử dụng xịt thơm quần áo");
+  const [focusKeyword, setFocusKeyword] = useState("Xịt thơm quần áo");
 
   // UI status
   const [isSaved, setIsSaved] = useState(false);
@@ -55,24 +70,28 @@ export default function AdminBlogEditPage() {
       setContent(post.content);
       setCategory(post.category);
       setStatus(post.status);
+      setCoverImage(post.coverImage || "/images/banner/banner-2.jpg");
       setSlug(post.seo?.slug || post.slug);
       setSeoTitle(post.seo?.seoTitle || post.title);
       setSeoDescription(post.seo?.seoDescription || post.excerpt);
       if (post.seo?.focusKeyword) {
         setFocusKeyword(post.seo.focusKeyword);
+      } else {
+        setFocusKeyword("Xịt thơm quần áo");
       }
     } else {
-      // Default sample values if post not found
+      // Default sample values
       setTitle("Cách Sử Dụng Xịt Thơm Quần Áo Đúng Cách Để Lưu Hương Bền Lâu");
       setExcerpt(
         "Hướng dẫn chi tiết cách sử dụng xịt thơm quần áo đúng cách giúp khử mùi ẩm mốc, giữ hương hoa cỏ tự nhiên thơm ngát và mềm mịn sợi vải."
       );
+      setCoverImage("/images/banner/banner-2.jpg");
       setSlug("cach-su-dung-xit-thom-quan-ao");
       setSeoTitle("Cách sử dụng xịt thơm quần áo đúng cách");
       setSeoDescription(
         "Khám phá cách sử dụng xịt thơm quần áo đúng cách từ Mộc Hương giúp lưu hương thơm ngát tự nhiên, khử mùi ẩm mốc và bảo vệ sợi vải suốt cả ngày dài."
       );
-      setFocusKeyword("cách sử dụng xịt thơm quần áo");
+      setFocusKeyword("Xịt thơm quần áo");
     }
   }, [post]);
 
@@ -94,35 +113,47 @@ export default function AdminBlogEditPage() {
   // Kiểm tra tính hợp lệ của slug
   const isSlugValid = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug);
 
-  // Kiểm tra từ khóa trong Tiêu đề SEO
-  const hasKeywordInTitle =
-    focusKeyword &&
-    seoTitle.toLowerCase().includes(focusKeyword.toLowerCase().trim());
+  // Hàm chuẩn hóa tiếng Việt không dấu để kiểm tra từ khóa linh hoạt
+  const normalizeText = (text: string) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[đĐ]/g, "d")
+      .trim();
+
+  // Kiểm tra từ khóa trong Tiêu đề SEO (Linh hoạt: cả có dấu lẫn không dấu, không ép buộc cứng)
+  const hasKeywordInTitle = !focusKeyword.trim()
+    ? true
+    : seoTitle.toLowerCase().includes(focusKeyword.toLowerCase().trim()) ||
+      normalizeText(seoTitle).includes(normalizeText(focusKeyword));
 
   // Kiểm tra từ khóa trong Mô tả SEO
-  const hasKeywordInDesc =
-    focusKeyword &&
-    seoDescription.toLowerCase().includes(focusKeyword.toLowerCase().trim());
+  const hasKeywordInDesc = !focusKeyword.trim()
+    ? true
+    : seoDescription.toLowerCase().includes(focusKeyword.toLowerCase().trim()) ||
+      normalizeText(seoDescription).includes(normalizeText(focusKeyword));
 
   // Xử lý Lưu cài đặt SEO & Bài viết
   const handleSave = () => {
-    if (post) {
-      updatePost(post.id, {
-        title,
-        excerpt,
-        content,
-        category,
-        status,
+    const finalPostId = post?.id || postId;
+    updatePost(finalPostId, {
+      title,
+      excerpt,
+      content,
+      category,
+      status,
+      coverImage,
+      slug,
+      seo: {
         slug,
-        seo: {
-          slug,
-          seoTitle,
-          seoDescription,
-          focusKeyword,
-          canonicalUrl: `https://mochuong.vn/blog/${slug}`,
-        },
-      });
-    }
+        seoTitle,
+        seoDescription,
+        focusKeyword: focusKeyword.trim() || "Xịt thơm quần áo",
+        canonicalUrl: `https://mochuong.vn/blog/${slug}`,
+        noIndex: false,
+      },
+    });
 
     const now = new Date();
     const timeString = `${now.getHours().toString().padStart(2, "0")}:${now
@@ -131,11 +162,15 @@ export default function AdminBlogEditPage() {
       .padStart(2, "0")}:${now.getSeconds().toString().padStart(2, "0")}`;
     setSavedTime(timeString);
     setIsSaved(true);
+  };
 
-    // Scroll slightly to make sure the notification is in view
-    setTimeout(() => {
-      // Keep notification active for clear visibility in screenshot
-    }, 4000);
+  const handleDelete = () => {
+    if (confirm(`Bạn có chắc chắn muốn xóa bài viết "${title}" không?`)) {
+      if (post?.id) {
+        deletePost(post.id);
+      }
+      router.push("/admin/bai-viet");
+    }
   };
 
   const handleCopyUrl = () => {
@@ -145,8 +180,8 @@ export default function AdminBlogEditPage() {
   };
 
   return (
-    <div className="space-y-6 pb-20">
-      {/* TOP BAR */}
+    <div className="space-y-6 pb-20 max-w-7xl mx-auto">
+      {/* TOP ACTION BAR */}
       <div className="bg-white p-4 sm:p-5 rounded-3xl border border-[#E3DACB] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <Link
@@ -179,7 +214,7 @@ export default function AdminBlogEditPage() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap">
           {/* Status selector */}
           <div className="flex items-center bg-cream/70 rounded-xl p-1 border border-beige text-xs font-semibold">
             <button
@@ -205,6 +240,15 @@ export default function AdminBlogEditPage() {
               Xuất bản
             </button>
           </div>
+
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="p-2.5 rounded-xl border border-red-200 text-red-600 hover:bg-red-50 transition-colors"
+            title="Xóa bài viết này"
+          >
+            <Trash2 className="w-4 h-4" />
+          </button>
 
           {/* Save Button */}
           <button
@@ -246,14 +290,14 @@ export default function AdminBlogEditPage() {
         </div>
       )}
 
-      {/* TWO COLUMNS: NỘI DUNG BÀI VIẾT (TRÁI) & MỤC CÀI ĐẶT SEO (PHẢI HOẶC CHÍNH) */}
+      {/* TWO COLUMNS: NỘI DUNG BÀI VIẾT (TRÁI) & MỤC CÀI ĐẶT SEO (PHẢI) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* CỘT TRÁI (5 CỘT): NỘI DUNG BÀI VIẾT CƠ BẢN */}
+        {/* CỘT TRÁI (5 CỘT): NỘI DUNG BÀI VIẾT CƠ BẢN & QUẢN LÝ ẢNH BÌA */}
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-white p-6 rounded-3xl border border-[#E3DACB] shadow-xs space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-beige">
               <h2 className="font-serif font-bold text-base text-[#25391C]">
-                Thông Tin Bài Viết
+                1. Thông Tin Bài Viết
               </h2>
               <span className="text-[11px] text-ink/50">Soạn thảo nội dung</span>
             </div>
@@ -317,6 +361,95 @@ export default function AdminBlogEditPage() {
               />
             </div>
           </div>
+
+          {/* Card Quản lý ảnh bìa (Cover Image Selector) */}
+          <div className="bg-white p-6 rounded-3xl border border-[#E3DACB] shadow-xs space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-beige">
+              <h2 className="font-serif font-bold text-base text-[#25391C] flex items-center gap-2">
+                <ImageIcon className="w-4 h-4 text-moss" />
+                <span>2. Quản Lý Ảnh Bìa Bài Viết</span>
+              </h2>
+              <span className="text-[11px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                Đã đồng bộ ảnh thật
+              </span>
+            </div>
+
+            {/* Ảnh đang được chọn */}
+            <div className="space-y-2">
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border-2 border-moss/30 bg-[#FAF6EE] shadow-xs">
+                <Image
+                  src={coverImage || "/images/banner/banner.jpg"}
+                  alt={title || "Ảnh bìa"}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-xs truncate max-w-[90%]">
+                  {coverImage}
+                </div>
+              </div>
+            </div>
+
+            {/* Thư viện ảnh chọn nhanh */}
+            <div className="space-y-2 pt-1">
+              <label className="block text-xs font-bold text-ink/70">
+                Chọn ảnh bìa từ kho tài nguyên Mộc Hương:
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {AVAILABLE_IMAGES.map((img) => (
+                  <button
+                    key={img.url}
+                    type="button"
+                    onClick={() => setCoverImage(img.url)}
+                    className={`relative aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all p-0.5 ${
+                      coverImage === img.url
+                        ? "border-[#59683A] ring-2 ring-[#59683A]/30 scale-[1.03]"
+                        : "border-beige hover:border-moss/60 opacity-80 hover:opacity-100"
+                    }`}
+                    title={img.label}
+                  >
+                    <Image
+                      src={img.url}
+                      alt={img.label}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                    {coverImage === img.url && (
+                      <div className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#59683A] text-white flex items-center justify-center">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Tùy chỉnh URL ảnh */}
+            <div className="space-y-1.5 pt-1">
+              <label className="block text-[11px] font-bold text-ink/60">
+                Hoặc nhập đường dẫn ảnh khác:
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={customImageUrl}
+                  onChange={(e) => setCustomImageUrl(e.target.value)}
+                  placeholder="/images/... hoặc https://..."
+                  className="flex-1 px-3 py-1.5 rounded-xl border border-beige bg-cream/30 text-xs text-ink focus:outline-none focus:border-moss"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (customImageUrl.trim()) {
+                      setCoverImage(customImageUrl.trim());
+                    }
+                  }}
+                  className="px-3 py-1.5 rounded-xl bg-cream border border-beige text-xs font-bold text-moss-dark hover:bg-cream/80 cursor-pointer"
+                >
+                  Áp dụng
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* CỘT PHẢI (7 CỘT): TRỌNG TÂM - MỤC CÀI ĐẶT TÌM KIẾM & CẤU HÌNH SEO */}
@@ -351,23 +484,46 @@ export default function AdminBlogEditPage() {
             </div>
 
             <div className="p-6 space-y-6">
-              {/* TỪ KHÓA CHÍNH (FOCUS KEYWORD) */}
-              <div className="p-3.5 bg-[#FAF6EE] rounded-2xl border border-[#E8DEC8] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-ink/70">
-                    Từ khóa chính (Focus Keyword):
-                  </span>
-                  <span className="px-2.5 py-1 bg-white text-terracotta rounded-lg font-bold text-xs border border-beige">
-                    {focusKeyword}
-                  </span>
+              {/* TỪ KHÓA CHÍNH (FOCUS KEYWORD) - HOÀN TOÀN ĐƯỢC CHỈNH SỬA TỰ DO, MẶC ĐỊNH LÀ "XỊT THƠM QUẦN ÁO" */}
+              <div className="p-4 bg-[#FAF6EE] rounded-2xl border border-[#E8DEC8] space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex-1 flex flex-col sm:flex-row sm:items-center gap-2">
+                    <label className="text-xs font-bold text-ink/80 shrink-0 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-terracotta" />
+                      <span>Từ khóa chính (Focus Keyword):</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={focusKeyword}
+                      onChange={(e) => setFocusKeyword(e.target.value)}
+                      placeholder="VD: Xịt thơm quần áo, tinh dầu ngủ ngon..."
+                      className="w-full sm:w-64 px-3 py-1.5 bg-white text-terracotta font-bold text-xs rounded-xl border border-beige focus:outline-none focus:border-moss shadow-2xs"
+                    />
+                  </div>
+                  <div className="text-[11px] text-ink/70">
+                    {focusKeyword.trim() ? (
+                      hasKeywordInTitle && hasKeywordInDesc ? (
+                        <span className="flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          <span>Từ khóa &quot;{focusKeyword}&quot; đã tối ưu chuẩn On-Page</span>
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1 text-amber-700 font-medium bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          <span>Gợi ý chèn thêm &quot;{focusKeyword}&quot; vào Tiêu đề/Mô tả</span>
+                        </span>
+                      )
+                    ) : (
+                      <span className="text-ink/50 italic">Có thể tùy chọn nhập từ khóa theo nhu cầu</span>
+                    )}
+                  </div>
                 </div>
-                <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-bold">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Đã tối ưu vào Tiêu đề & Mô tả</span>
-                </div>
+                <p className="text-[11px] text-ink/50">
+                  * Hệ thống không khóa cứng: bạn có thể nhập &quot;Xịt thơm quần áo&quot; hoặc bất kỳ từ khóa nào khác tùy theo chủ đề bài viết.
+                </p>
               </div>
 
-              {/* 1. ĐƯỜNG DẪN (SLUG) - YÊU CẦU 1 CỦA USER */}
+              {/* 1. ĐƯỜNG DẪN (SLUG) */}
               <div
                 id="seo-field-slug"
                 className="space-y-2 p-4 rounded-2xl bg-cream/40 border border-beige"
@@ -436,7 +592,7 @@ export default function AdminBlogEditPage() {
                 </div>
               </div>
 
-              {/* 2. TIÊU ĐỀ SEO (SEO TITLE) - YÊU CẦU 2 CỦA USER */}
+              {/* 2. TIÊU ĐỀ SEO (SEO TITLE) */}
               <div
                 id="seo-field-title"
                 className="space-y-2 p-4 rounded-2xl bg-cream/40 border border-beige"
@@ -450,21 +606,17 @@ export default function AdminBlogEditPage() {
                   </label>
                   <span
                     className={`text-[11px] font-bold ${
-                      seoTitle.length >= 40 && seoTitle.length <= 60
+                      seoTitle.length >= 30 && seoTitle.length <= 60
                         ? "text-emerald-700"
                         : "text-ink/60"
                     }`}
                   >
-                    {seoTitle.length} / 60 ký tự {seoTitle.length >= 40 && seoTitle.length <= 60 ? "(Độ dài tối ưu)" : ""}
+                    {seoTitle.length} / 60 ký tự {seoTitle.length >= 30 && seoTitle.length <= 60 ? "(Độ dài tối ưu)" : ""}
                   </span>
                 </div>
 
                 <div className="text-[11px] text-ink/65 italic">
-                  Quy tắc: có chứa từ khóa chính (ví dụ: &quot;
-                  <span className="font-semibold text-terracotta">
-                    Cách sử dụng xịt thơm quần áo đúng cách
-                  </span>
-                  &quot;)
+                  Quy tắc: nên có từ khóa chính để tối ưu hóa thứ hạng hiển thị trên Google
                 </div>
 
                 <input
@@ -480,12 +632,12 @@ export default function AdminBlogEditPage() {
                   {hasKeywordInTitle ? (
                     <span className="flex items-center gap-1 text-emerald-700 font-bold">
                       <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Đã chứa từ khóa chính trong tiêu đề</span>
+                      <span>{focusKeyword ? `Đã chứa từ khóa chính "${focusKeyword}"` : "Tiêu đề hợp lệ"}</span>
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 text-amber-700 font-semibold">
                       <AlertCircle className="w-3.5 h-3.5" />
-                      <span>Nên chèn từ khóa: &quot;{focusKeyword}&quot;</span>
+                      <span>Gợi ý chèn từ khóa: &quot;{focusKeyword}&quot;</span>
                     </span>
                   )}
 
@@ -493,7 +645,7 @@ export default function AdminBlogEditPage() {
                 </div>
               </div>
 
-              {/* 3. MÔ TẢ SEO (META DESCRIPTION) - YÊU CẦU 3 CỦA USER */}
+              {/* 3. MÔ TẢ SEO (META DESCRIPTION) */}
               <div
                 id="seo-field-desc"
                 className="space-y-2 p-4 rounded-2xl bg-cream/40 border border-beige"
@@ -507,12 +659,12 @@ export default function AdminBlogEditPage() {
                   </label>
                   <span
                     className={`text-[11px] font-bold ${
-                      seoDescription.length >= 120 && seoDescription.length <= 160
+                      seoDescription.length >= 100 && seoDescription.length <= 160
                         ? "text-emerald-700"
                         : "text-ink/60"
                     }`}
                   >
-                    {seoDescription.length} / 160 ký tự {seoDescription.length >= 120 && seoDescription.length <= 160 ? "(Chuẩn Google SERP)" : ""}
+                    {seoDescription.length} / 160 ký tự {seoDescription.length >= 100 && seoDescription.length <= 160 ? "(Chuẩn Google SERP)" : ""}
                   </span>
                 </div>
 
@@ -533,12 +685,12 @@ export default function AdminBlogEditPage() {
                   {hasKeywordInDesc ? (
                     <span className="flex items-center gap-1 text-emerald-700 font-bold">
                       <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Đã chứa từ khóa chính trong mô tả</span>
+                      <span>{focusKeyword ? `Đã chứa từ khóa chính "${focusKeyword}"` : "Mô tả hợp lệ"}</span>
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 text-amber-700 font-semibold">
                       <AlertCircle className="w-3.5 h-3.5" />
-                      <span>Nên chèn từ khóa: &quot;{focusKeyword}&quot;</span>
+                      <span>Gợi ý chèn từ khóa: &quot;{focusKeyword}&quot;</span>
                     </span>
                   )}
 
@@ -629,11 +781,11 @@ export default function AdminBlogEditPage() {
                   </div>
                   <div className="flex items-center gap-1.5 font-semibold">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                    <span>Tiêu đề chứa từ khóa chính</span>
+                    <span>Tiêu đề chứa từ khóa chính linh hoạt</span>
                   </div>
                   <div className="flex items-center gap-1.5 font-semibold">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                    <span>Độ dài tiêu đề tối ưu (dưới 60 ký tự)</span>
+                    <span>Độ dài tiêu đề tối ưu hiển thị (dưới 60 ký tự)</span>
                   </div>
                   <div className="flex items-center gap-1.5 font-semibold">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
