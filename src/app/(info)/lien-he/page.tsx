@@ -79,7 +79,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <strong className="block text-moss-dark">Email hỗ trợ:</strong>
-                  <span>{siteConfig.email}</span>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="hover:text-moss hover:underline font-semibold"
+                  >
+                    {siteConfig.email}
+                  </a>
                 </div>
               </div>
 

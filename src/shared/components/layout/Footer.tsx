@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   MapPin,
   Phone,
@@ -17,6 +18,10 @@ import { siteConfig } from "@/core/config/site.config";
 import { FOOTER_LINKS } from "@/core/constants/navigation";
 
 export const Footer: React.FC = () => {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -108,7 +113,12 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-moss shrink-0" />
-                <span>Email: {siteConfig.email}</span>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="hover:text-moss hover:underline"
+                >
+                  Email: {siteConfig.email}
+                </a>
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -7,28 +8,96 @@ import { MOCK_BLOGS } from "@/features/blog/data/mock-blogs";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = MOCK_BLOGS.find((b) => b.slug === slug || b.seo?.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Bài viết không tìm thấy | Mộc Hương",
+    };
+  }
+
+  const title = post.seo?.seoTitle || post.title;
+  const description = post.seo?.seoDescription || post.excerpt;
+
+  return {
+    title: `${title} | Mộc Hương`,
+    description,
+    keywords: [
+      post.seo?.focusKeyword || "xịt thơm quần áo",
+      "Mộc Hương",
+      post.category,
+      "tinh dầu thiên nhiên",
+    ],
+    alternates: {
+      canonical:
+        post.seo?.canonicalUrl || `https://mochuong.vn/blog/${post.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://mochuong.vn/blog/${post.slug}`,
+      siteName: "Mộc Hương",
+      locale: "vi_VN",
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.author],
+    },
+  };
+}
+
 export default async function BlogDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = MOCK_BLOGS.find((b) => b.slug === slug);
+  const post = MOCK_BLOGS.find((b) => b.slug === slug || b.seo?.slug === slug);
 
   if (!post) {
     notFound();
   }
 
-  const postIndex = MOCK_BLOGS.findIndex((b) => b.slug === slug);
+  const postIndex = MOCK_BLOGS.findIndex((b) => b.slug === slug || b.seo?.slug === slug);
   const coverImages = [
     "/images/banner/banner.jpg",
     "/images/collections/bo-suu-tap-trai-cay.jpg",
     "/images/collections/bo-suu-tap-hoa.jpg",
   ];
-  const coverImage = coverImages[postIndex % coverImages.length];
+  const coverImage = coverImages[Math.max(0, postIndex) % coverImages.length];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.seo?.seoTitle || post.title,
+    description: post.seo?.seoDescription || post.excerpt,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Mộc Hương",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://mochuong.vn/images/logo/logo-clean.png",
+      },
+    },
+    datePublished: post.publishedAt,
+    mainEntityOfPage: `https://mochuong.vn/blog/${post.slug}`,
+  };
 
   return (
     <div className="py-10 sm:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <Link
           href="/blog"

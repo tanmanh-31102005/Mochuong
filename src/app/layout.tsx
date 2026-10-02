@@ -19,24 +19,42 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
+    default: "Xịt Thơm Quần Áo Thiên Nhiên 30ml | Mộc Hương — Lưu Hương & Khử Mùi",
+    template: `%s | Xịt Thơm Quần Áo Mộc Hương`,
   },
-  description: siteConfig.description,
+  description:
+    "Mộc Hương chuyên xịt thơm quần áo và phòng chiết xuất 100% tinh dầu thiên nhiên 30ml. Khử mùi ẩm mốc, kháng khuẩn tự nhiên, lưu hương thảo mộc thanh khiết suốt cả ngày dài.",
   keywords: [
     "xịt thơm quần áo",
+    "xịt thơm quần áo thiên nhiên",
+    "xịt thơm quần áo lưu hương lâu",
     "xịt thơm phòng",
-    "tinh dầu thiên nhiên",
+    "xịt thơm vải thảo mộc",
+    "xịt thơm khử mùi ẩm mốc",
     "Mộc Hương",
-    "thảo mộc thanh lọc",
-    "oải hương thư giãn",
-    "hương thơm tự nhiên",
+    "tinh dầu thiên nhiên 30ml",
   ],
   authors: [{ name: "Mộc Hương Nature" }],
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: siteConfig.fullName,
-    description: siteConfig.description,
+    title: "Xịt Thơm Quần Áo Thiên Nhiên 30ml | Mộc Hương — Lưu Hương Tự Nhiên",
+    description:
+      "Khám phá 18 nốt hương xịt thơm quần áo chiết xuất 100% tinh dầu thiên nhiên giúp trang phục luôn thơm ngát, khử mùi ẩm mốc hiệu quả và an toàn cho làn da.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "vi_VN",

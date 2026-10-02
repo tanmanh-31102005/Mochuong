@@ -7,8 +7,8 @@ export const siteConfig = {
   url: "https://mochuong.vn",
   hotline: "0971 124 922",
   zalo: "0971 124 922",
-  email: "mochuong.handmade@gmail.com",
-  address: "Đang cập nhật",
+  email: "mochuongxitthom@gmail.com",
+  address: "140 Lê Trọng Tấn, Tây Thạnh, Tân Phú, Ho Chi Minh City",
   socials: {
     facebook: "https://www.facebook.com/profile.php?id=61594273501632",
     facebookText: "Mộc Hương Handmade",

@@ -41,10 +41,10 @@ export const HERO_SLIDES: HeroSlide[] = [
     image: "/images/banner/banner.jpg",
     badge: "Xịt thơm quần áo & phòng 30ml",
     badgeIconColor: "terracotta",
-    headingLine1: "Hương thơm từ thiên nhiên",
-    headingLine2: "Thơm mát từng khoảnh khắc",
+    headingLine1: "Xịt Thơm Quần Áo Thiên Nhiên",
+    headingLine2: "Thơm Mát Từng Khoảnh Khắc",
     description:
-      "Những nốt hương dịu nhẹ từ thảo mộc, hoa và trái cây, giúp làm mới quần áo và không gian sống mỗi ngày.",
+      "Bộ sưu tập xịt thơm quần áo chiết xuất tinh dầu thiên nhiên nguyên chất 30ml từ Mộc Hương. Khử sạch mùi ẩm mốc, giữ nếp vải thơm mát và tỏa hương dịu nhẹ suốt cả ngày.",
     primaryCta: {
       text: "Khám phá sản phẩm",
       href: "/san-pham",

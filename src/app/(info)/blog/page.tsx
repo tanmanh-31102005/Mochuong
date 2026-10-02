@@ -1,9 +1,16 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock, ArrowRight } from "lucide-react";
 import { MOCK_BLOGS } from "@/features/blog/data/mock-blogs";
 import { Badge } from "@/shared/components/ui/Badge";
+
+export const metadata: Metadata = {
+  title: "Góc Thảo Dược & Mẹo Dùng Xịt Thơm Quần Áo | Mộc Hương",
+  description:
+    "Cẩm nang hướng dẫn cách sử dụng xịt thơm quần áo đúng cách, mẹo ướp hương trang phục tự nhiên bền lâu và thư giãn tinh thần với liệu pháp hương thơm thảo mộc.",
+};
 
 const BLOG_IMAGES = [
   "/images/banner/banner.jpg",

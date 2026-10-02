@@ -485,7 +485,7 @@ function CheckoutContent() {
                     />
                     <div>
                       <h4 className="font-bold text-xs sm:text-sm text-ink">Nhận Tại Điểm Phân Phối Mộc Hương</h4>
-                      <p className="text-[11px] text-ink/60">Địa chỉ: Đang cập nhật (Liên hệ xác nhận qua email)</p>
+                      <p className="text-[11px] text-ink/60">Địa chỉ: {SITE_CONFIG.address}</p>
                     </div>
                   </div>
                   <span className="text-xs font-bold text-moss">Miễn phí</span>

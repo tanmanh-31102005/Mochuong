@@ -140,8 +140,32 @@ function SingleProductDetailView({ product }: { product: Product }) {
 
   const bottleStyle = getBottleStyles();
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `Xịt thơm quần áo & phòng ${product.tenMuiHuong} 30ml`,
+    description: `Xịt thơm quần áo chiết xuất tinh dầu thiên nhiên Mộc Hương nốt hương ${product.tenMuiHuong}. ${product.moTaNgan}`,
+    image: `https://mochuong.vn${product.hinhAnh?.nhan || "/images/banner/banner.jpg"}`,
+    brand: {
+      "@type": "Brand",
+      name: "Mộc Hương",
+    },
+    offers: {
+      "@type": "Offer",
+      price: product.gia,
+      priceCurrency: "VND",
+      availability: "https://schema.org/InStock",
+      url: `https://mochuong.vn/san-pham/${product.slug}`,
+    },
+    category: "Xịt thơm quần áo",
+  };
+
   return (
     <div className="py-6 sm:py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-xs text-ink/70 mb-6 flex items-center gap-2">
