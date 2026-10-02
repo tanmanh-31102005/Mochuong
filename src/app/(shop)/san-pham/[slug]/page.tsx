@@ -18,6 +18,7 @@ import { PRODUCT_SHARED_CONFIG } from "@/core/config/product-shared.config";
 import {
   ShoppingBag,
   Check,
+  CheckCircle2,
   ShieldCheck,
   RotateCcw,
   Truck,
@@ -224,10 +225,10 @@ function SingleProductDetailView({ product }: { product: Product }) {
                             Mộc Hương
                           </span>
                           <span className="text-[11px] font-serif font-bold text-ink-dark block leading-tight mt-1">
-                            {product.tenMuiHuong}
+                            Xịt Thơm Quần Áo {product.tenMuiHuong}
                           </span>
                           <span className="text-[8px] text-ink-muted block mt-1 font-semibold">
-                            Dung tích {product.dungTich} · Tự nhiên
+                            Dung tích {product.dungTich} · Khử ẩm mốc vải
                           </span>
                         </div>
                         <div className="w-2.5 h-2.5 rounded-full bg-moss/60 mb-2 z-1" />
@@ -243,10 +244,10 @@ function SingleProductDetailView({ product }: { product: Product }) {
                       <ShieldCheck className="w-7 h-7" />
                     </div>
                     <h3 className="font-serif font-bold text-base text-ink-dark">
-                      Không Gian Phù Hợp Cho {product.tenMuiHuong}
+                      Không Gian &amp; Vải Vóc Phù Hợp Cho {product.tenMuiHuong}
                     </h3>
                     <p className="text-xs text-ink-muted leading-relaxed">
-                      Xịt thơm gối đệm phòng ngủ, rèm cửa phòng khách hoặc tủ quần áo. Khử triệt để mùi ẩm mốc và mang lại cảm giác dễ chịu tức thì.
+                      Xịt thơm trực tiếp lên áo sơ mi, áo khoác, váy đầm, rèm cửa hoặc tủ quần áo. Khử sạch mùi ẩm mốc và mang lại hương thơm tinh tế suốt cả ngày.
                     </p>
                     <div className="flex flex-wrap gap-1.5 justify-center pt-2">
                       {product.phuHopVoi?.map((place, idx) => (
@@ -271,7 +272,7 @@ function SingleProductDetailView({ product }: { product: Product }) {
                     : "border-beige/80 bg-cream text-ink/70 hover:bg-beige/40"
                 }`}
               >
-                Chai Xịt Thơm (30ml)
+                Chai Xịt Thơm Quần Áo (30ml)
               </button>
               <button
                 type="button"
@@ -292,16 +293,16 @@ function SingleProductDetailView({ product }: { product: Product }) {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-0.5">
                 <span className="text-xs font-bold uppercase tracking-wider text-moss">
-                  Dòng hương: {product.dongHuongLabel || (Array.isArray(product.dongHuong) ? product.dongHuong.join(" & ") : product.dongHuong)}
+                  Xịt Thơm Quần Áo · {product.dongHuongLabel || (Array.isArray(product.dongHuong) ? product.dongHuong.join(" & ") : product.dongHuong)}
                 </span>
-                <span className="text-xs font-bold bg-beige px-2.5 py-1 rounded-full text-ink/80">
+                <span className="text-xs font-bold bg-moss/10 text-moss-dark px-2.5 py-1 rounded-full border border-moss/20">
                   Dung tích chuẩn: {product.dungTich}
                 </span>
               </div>
 
-              {/* Tên sản phẩm H1 với khoảng cách trên dưới cân đối, không dính sát (2.4) */}
+              {/* Tên sản phẩm H1 với khoảng cách trên dưới cân đối */}
               <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-moss-dark tracking-tight leading-tight my-1">
-                {product.tenMuiHuong}
+                Xịt Thơm Quần Áo {product.tenMuiHuong}
               </h1>
 
               {/* Đánh giá sao */}
@@ -327,6 +328,22 @@ function SingleProductDetailView({ product }: { product: Product }) {
                     </Badge>
                   </>
                 )}
+              </div>
+
+              {/* 3 Cam kết xịt vải */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 py-1 text-[11px] font-semibold text-ink-dark">
+                <div className="flex items-center gap-1.5 bg-beige/50 px-2.5 py-1.5 rounded-lg border border-beige">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-moss shrink-0" />
+                  <span>Không ố vàng áo trắng</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-beige/50 px-2.5 py-1.5 rounded-lg border border-beige">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-moss shrink-0" />
+                  <span>Khử ẩm mốc sau 30s</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-beige/50 px-2.5 py-1.5 rounded-lg border border-beige">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-moss shrink-0" />
+                  <span>Lưu hương vải 24h</span>
+                </div>
               </div>
 
               {/* Mô tả cảm xúc ngắn */}

@@ -12,6 +12,10 @@ import {
   ChevronRight,
   Quote,
   Clock,
+  Shirt,
+  CloudRain,
+  UtensilsCrossed,
+  BedDouble,
 } from "lucide-react";
 import { MOCK_PRODUCTS } from "@/features/products/data/mock-products";
 import { MOCK_REVIEWS } from "@/features/reviews/data/mock-reviews";
@@ -54,7 +58,7 @@ export default function HomePage() {
       <div className="space-y-12 sm:space-y-20">
         
         {/* ========================================================================= */}
-        {/* KHỐI 3: 3 CAM KẾT THƯƠNG HIỆU (Icon tròn viền moss, stagger delay 80-100ms) */}
+        {/* KHỐI 3: 3 CAM KẾT CHUYÊN BIỆT CHO XỊT THƠM QUẦN ÁO (Icon tròn viền moss)   */}
         {/* ========================================================================= */}
         <section className="bg-beige/70 py-12 sm:py-16 border-y border-beige">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,14 +66,14 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
                 <div>
                   <span className="text-xs font-bold text-moss uppercase tracking-widest block mb-2">
-                    Triết Lý Thương Hiệu
+                    Chuyên Gia Chăm Sóc Vải Vóc
                   </span>
                   <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink-dark">
-                    Cam Kết Từ Tâm Của Mộc Hương
+                    Vì Sao Quần Áo Cần Xịt Thơm Mộc Hương?
                   </h2>
                 </div>
                 <p className="text-xs sm:text-sm text-ink-muted max-w-md leading-relaxed">
-                  Mỗi giọt hương gửi trao là sự kết tinh từ thảo mộc bản địa, được chưng cất tỉ mỉ vì sức khỏe và sự an yên của gia đình bạn.
+                  Công thức chưng cất tự nhiên 30ml chuyên biệt cho vải vóc: khử sạch mùi ẩm mốc, giữ nếp áo thơm mát suốt cả ngày và tuyệt đối an toàn cho làn da.
                 </p>
               </div>
             </ScrollReveal>
@@ -79,13 +83,13 @@ export default function HomePage() {
               <ScrollReveal delay={0} className="h-full">
                 <div className="bg-white p-6 sm:p-7 rounded-2xl border border-beige/80 hover:border-moss/40 hover:shadow-xs transition-all duration-300 flex flex-col items-start h-full">
                   <div className="w-12 h-12 rounded-xl bg-moss/10 border border-moss/20 flex items-center justify-center text-moss mb-4">
-                    <ShieldCheck className="w-6 h-6" />
+                    <Shirt className="w-6 h-6" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-ink-dark mb-2">
-                    Tinh Dầu Thiên Nhiên 100%
+                    100% Không Ố Vàng Sợi Vải
                   </h3>
                   <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
-                    Chiết xuất từ hoa lá hữu cơ nguyên chất kết hợp cồn lên men từ mía đường. Tuyệt đối không hương liệu tổng hợp độc hại, an toàn cho trẻ nhỏ và mẹ bầu.
+                    Dạng phun sương mịn từ hydrosol thực vật và cồn mía lên men lành tính. Hoàn toàn không chứa cồn công nghiệp nồng độ cao, an toàn tuyệt đối cho áo sơ mi trắng, vải lụa, linen và len sợi.
                   </p>
                 </div>
               </ScrollReveal>
@@ -94,13 +98,13 @@ export default function HomePage() {
               <ScrollReveal delay={90} className="h-full">
                 <div className="bg-white p-6 sm:p-7 rounded-2xl border border-beige/80 hover:border-moss/40 hover:shadow-xs transition-all duration-300 flex flex-col items-start h-full">
                   <div className="w-12 h-12 rounded-xl bg-terracotta/10 border border-terracotta/20 flex items-center justify-center text-terracotta mb-4">
-                    <Sparkles className="w-6 h-6" />
+                    <Wind className="w-6 h-6" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-ink-dark mb-2">
-                    16+ Nốt Hương Tinh Tuyển
+                    Khử Sạch Mùi Ẩm Mốc &amp; Lẩu Nướng
                   </h3>
                   <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
-                    Được nghiên cứu tỉ mỉ qua 4 dòng cảm xúc riêng biệt: Thảo mộc thanh lọc, Hoa dịu nhẹ, Trái cây tươi mát và Ấm nồng sang trọng cho từng góc sống.
+                    Cơ chế sinh học bẻ gãy phân tử mùi hôi ẩm mốc mùa mưa, mùi khói bụi, thuốc lá và thức ăn dầu mỡ trên trang phục chỉ sau 30 giây xịt — thay vì chỉ dùng hương thơm lấn át.
                   </p>
                 </div>
               </ScrollReveal>
@@ -109,13 +113,13 @@ export default function HomePage() {
               <ScrollReveal delay={180} className="h-full">
                 <div className="bg-white p-6 sm:p-7 rounded-2xl border border-beige/80 hover:border-moss/40 hover:shadow-xs transition-all duration-300 flex flex-col items-start h-full">
                   <div className="w-12 h-12 rounded-xl bg-moss/10 border border-moss/20 flex items-center justify-center text-moss-dark mb-4">
-                    <Wind className="w-6 h-6" />
+                    <Sparkles className="w-6 h-6" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-ink-dark mb-2">
-                    Khử Mùi Tận Gốc — Lưu Hương Êm
+                    Lưu Hương Êm Dịu Suốt 24 Giờ
                   </h3>
                   <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
-                    Cơ chế phân giải phân tử ẩm mốc, khói bụi trên sợi vải thay vì dùng hóa chất lấn át mùi, để lại hương thảo mộc dịu nhẹ thư thái bền lâu.
+                    18 nốt hương thảo mộc và hoa cỏ thuần khiết lưu giữ thoang thoảng trên từng thớ vải từ sáng sớm đến tối muộn. Hương thơm tinh tế, dịu nhẹ cho đường thở và an toàn cho mẹ bầu &amp; em bé.
                   </p>
                 </div>
               </ScrollReveal>
@@ -124,21 +128,21 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* KHỐI 4: 4 DÒNG HƯƠNG NỔI BẬT (Category tiles, heading fade-up, tiles scale) */}
+        {/* KHỐI 4: 4 DÒNG XỊT THƠM QUẦN ÁO NỔI BẬT                                   */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
               <div>
                 <span className="text-xs font-bold text-moss uppercase tracking-widest block mb-2">
-                  Khám Phá Phong Cách
+                  Bộ Sưu Tập Xịt Quần Áo 30ml
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-ink-dark">
-                  4 Dòng Hương Cảm Xúc
+                  4 Dòng Xịt Thơm Quần Áo Chuyên Biệt
                 </h2>
               </div>
               <p className="text-xs sm:text-sm text-ink-muted max-w-md">
-                Mỗi dòng hương là một nốt lặng bình yên, giúp bạn tìm lại sự cân bằng sau những bộn bề cuộc sống.
+                Được thiết kế riêng theo từng nhu cầu: khử mùi ẩm mốc, ướp hương đồ công sở, thư giãn gối đệm hay làm mới áo khoác dày.
               </p>
             </div>
           </ScrollReveal>
@@ -155,14 +159,14 @@ export default function HomePage() {
                     <Wind className="w-5 h-5" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-[#354622] group-hover:text-moss transition-colors">
-                    Thảo mộc – Thanh lọc
+                    Dòng Thảo mộc – Kháng khuẩn
                   </h3>
                   <p className="text-xs text-[#43502E] mt-1.5 leading-relaxed">
-                    Sả Chanh, Tràm gió, Tràm trắng, Hương thảo giúp thanh lọc không khí, xua muỗi và tỉnh táo tinh thần.
+                    Sả Chanh, Tràm gió, Hương thảo — Chuyên khử sạch mùi ẩm mốc mùa mưa, kháng khuẩn sợi vải và xua đuổi côn trùng.
                   </p>
                 </div>
                 <div className="pt-4 flex items-center justify-between text-xs font-bold text-[#354622] border-t border-[#D6E3CD]/60 mt-4">
-                  <span>Khám phá 4 sản phẩm (45k)</span>
+                  <span>Xem 4 chai xịt vải (45k)</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -179,14 +183,14 @@ export default function HomePage() {
                     <Flower2 className="w-5 h-5" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-[#5B333D] group-hover:text-terracotta transition-colors">
-                    Hoa – Dịu nhẹ
+                    Dòng Hoa – Dịu nhẹ &amp; Thanh lịch
                   </h3>
                   <p className="text-xs text-[#7A4B56]/85 mt-1.5 leading-relaxed">
-                    Hoa sen, Hoa nhài, Ngọc lan tây, Hoa ly, Hoa violet, Hoa anh đào mang lại cảm xúc dịu dàng và thư thái sâu.
+                    Hoa sen, Hoa nhài, Ngọc lan tây, Oải hương — Ướp hương áo váy dịu dàng, lưu hương êm ái trên chăn gối phòng ngủ.
                   </p>
                 </div>
                 <div className="pt-4 flex items-center justify-between text-xs font-bold text-[#5B333D] border-t border-[#EBD6DC]/60 mt-4">
-                  <span>Khám phá 6 sản phẩm (55k)</span>
+                  <span>Xem 6 chai xịt vải (55k)</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -203,14 +207,14 @@ export default function HomePage() {
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-[#6D4214] group-hover:text-amber-700 transition-colors">
-                    Trái cây – Tươi mát
+                    Dòng Trái cây – Tươi mát sảng khoái
                   </h3>
                   <p className="text-xs text-[#754317] mt-1.5 leading-relaxed">
-                    Bưởi, Quýt, Cam, Chanh, Dứa, Bạc Hà mang lại cảm giác sảng khoái tức thì và khử mùi hiệu quả.
+                    Bưởi hồng, Cam, Bạc hà — Khử sạch mùi đồ ăn, lẩu nướng BBQ bám trên trang phục tức thì chỉ sau 30 giây.
                   </p>
                 </div>
                 <div className="pt-4 flex items-center justify-between text-xs font-bold text-[#6D4214] border-t border-[#EEDCBE]/60 mt-4">
-                  <span>Khám phá 6 sản phẩm (45k)</span>
+                  <span>Xem 6 chai xịt vải (45k)</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -227,14 +231,14 @@ export default function HomePage() {
                     <Flame className="w-5 h-5" />
                   </div>
                   <h3 className="font-serif text-lg font-bold text-[#503723] group-hover:text-[#6B4B32] transition-colors">
-                    Ấm nồng – Cá tính
+                    Dòng Ấm nồng – Áo khoác &amp; Sang trọng
                   </h3>
                   <p className="text-xs text-[#6B4B32]/85 mt-1.5 leading-relaxed">
-                    Quế và Cà phê ấm áp, quyến rũ, khử mùi mạnh mẽ và tạo phong cách riêng biệt.
+                    Quế và Cà phê — Khử mùi vải dày, áo len, áo khoác dạ và tủ gỗ, mang phong thái sang trọng cuốn hút.
                   </p>
                 </div>
                 <div className="pt-4 flex items-center justify-between text-xs font-bold text-[#503723] border-t border-[#E2D4C6]/60 mt-4">
-                  <span>Khám phá 2 sản phẩm (50k)</span>
+                  <span>Xem 2 chai xịt vải (50k)</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -243,17 +247,125 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* KHỐI 5: HÀNG SẢN PHẨM: THẢO MỘC – THANH LỌC (Heading + Stagger Cards)    */}
+        {/* KHỐI MỚI: 4 TÌNH HUỐNG QUẦN ÁO CẦN XỊT THƠM MỘC HƯƠNG MỖI NGÀY            */}
+        {/* Giúp khách hàng hình dung 100% rõ ràng công dụng của xịt thơm quần áo     */}
+        {/* ========================================================================= */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="bg-[#FAF7F2] rounded-3xl p-6 sm:p-10 border border-[#E8DEC8] shadow-xs">
+              <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+                <span className="text-xs font-bold text-terracotta uppercase tracking-widest block mb-1.5">
+                  Ứng Dụng Thực Tế Hằng Ngày
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-moss-dark">
+                  4 Tình Huống Trang Phục Cần Xịt Thơm Mộc Hương
+                </h2>
+                <p className="text-xs sm:text-sm text-ink-muted mt-2">
+                  Chỉ cần 2–3 nhát xịt trực tiếp lên bề mặt vải, trang phục của bạn sẽ tức thì thơm mát tinh tươm.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {/* Tình huống 1 */}
+                <div className="bg-white p-5 rounded-2xl border border-beige/80 flex flex-col justify-between hover:border-moss/40 hover:shadow-xs transition-all">
+                  <div>
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                      <CloudRain className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full inline-block mb-2">
+                      Mùa mưa nồm ẩm
+                    </span>
+                    <h3 className="font-serif font-bold text-base text-ink-dark mb-1.5">
+                      Quần Áo Phơi Thiếu Nắng
+                    </h3>
+                    <p className="text-xs text-ink/75 leading-relaxed">
+                      Đồ phơi trong nhà bị ám mùi ẩm mốc, chua khó chịu? Xịt sương giúp diệt khuẩn ẩm mốc, áo thơm mát như vừa phơi nắng giòn.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-beige/60 text-[11px] text-moss-dark font-bold">
+                    ✓ Gợi ý: Sả Chanh, Tràm Gió
+                  </div>
+                </div>
+
+                {/* Tình huống 2 */}
+                <div className="bg-white p-5 rounded-2xl border border-beige/80 flex flex-col justify-between hover:border-moss/40 hover:shadow-xs transition-all">
+                  <div>
+                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+                      <UtensilsCrossed className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full inline-block mb-2">
+                      Khử mùi thức ăn
+                    </span>
+                    <h3 className="font-serif font-bold text-base text-ink-dark mb-1.5">
+                      Sau Bữa Tiệc Lẩu Nướng BBQ
+                    </h3>
+                    <p className="text-xs text-ink/75 leading-relaxed">
+                      Áo khoác, blazer, đầm tiệc bị ám mùi khói dầu mỡ nồng nặc? Khử sạch tức thì chỉ trong 30 giây mà không cần đem đi giặt hấp.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-beige/60 text-[11px] text-moss-dark font-bold">
+                    ✓ Gợi ý: Bưởi Hồng, Bạc Hà
+                  </div>
+                </div>
+
+                {/* Tình huống 3 */}
+                <div className="bg-white p-5 rounded-2xl border border-beige/80 flex flex-col justify-between hover:border-moss/40 hover:shadow-xs transition-all">
+                  <div>
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+                      <Shirt className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full inline-block mb-2">
+                      Đồ công sở
+                    </span>
+                    <h3 className="font-serif font-bold text-base text-ink-dark mb-1.5">
+                      Sơ Mi &amp; Phòng Máy Lạnh
+                    </h3>
+                    <p className="text-xs text-ink/75 leading-relaxed">
+                      Ngồi làm việc cả ngày phòng kín khiến áo bí bách? Lớp sương thảo mộc giữ nếp vải thơm mát, giúp bạn tự tin tuyệt đối khi gặp đối tác.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-beige/60 text-[11px] text-moss-dark font-bold">
+                    ✓ Gợi ý: Hoa Sen, Hương Thảo
+                  </div>
+                </div>
+
+                {/* Tình huống 4 */}
+                <div className="bg-white p-5 rounded-2xl border border-beige/80 flex flex-col justify-between hover:border-moss/40 hover:shadow-xs transition-all">
+                  <div>
+                    <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
+                      <BedDouble className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full inline-block mb-2">
+                      Phòng ngủ &amp; Tủ đồ
+                    </span>
+                    <h3 className="font-serif font-bold text-base text-ink-dark mb-1.5">
+                      Chăn Ga Gối &amp; Tủ Quần Áo
+                    </h3>
+                    <p className="text-xs text-ink/75 leading-relaxed">
+                      Ướp hương tủ đồ gỗ luôn thơm sạch nấm mốc. Xịt nhẹ ga gối 10 phút trước khi ngủ giúp thư giãn hệ thần kinh và ru sâu giấc ngủ.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-beige/60 text-[11px] text-moss-dark font-bold">
+                    ✓ Gợi ý: Oải Hương, Hoa Nhài
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* KHỐI 5: HÀNG SẢN PHẨM: THẢO MỘC – KHỬ MÙI ẨM MỐC                          */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="flex items-center justify-between mb-6 pb-3 border-b border-beige">
               <div>
                 <span className="text-xs font-bold text-moss uppercase tracking-wider block">
-                  Hương Thảo Dược Bản Địa
+                  Kháng Khuẩn Sợi Vải &amp; Khử Ẩm Mốc
                 </span>
                 <h2 className="font-serif text-2xl font-bold text-moss-dark">
-                  Dòng Thảo Mộc — Thanh Lọc Không Gian
+                  Dòng Thảo Mộc — Xịt Thơm Quần Áo Khử Sạch Ẩm Mốc
                 </h2>
               </div>
               <Link
@@ -276,17 +388,17 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* KHỐI 6: HÀNG SẢN PHẨM: HOA – DỊU NHẸ (Bố cục Editorial Spotlight)          */}
+        {/* KHỐI 6: HÀNG SẢN PHẨM: HOA – DỊU NHẸ & LƯU HƯƠNG                          */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="flex items-center justify-between mb-6 pb-3 border-b border-beige">
               <div>
                 <span className="text-xs font-bold text-terracotta uppercase tracking-wider block">
-                  Hương Hoa Tinh Tuyển
+                  Ướp Hương Êm Dịu Sợi Vải
                 </span>
                 <h2 className="font-serif text-2xl font-bold text-moss-dark">
-                  Dòng Hoa — Dịu Nhẹ &amp; Ru Êm Giấc Ngủ
+                  Dòng Hoa — Xịt Thơm Quần Áo Dịu Dàng &amp; Lưu Hương Bền Lâu
                 </h2>
               </div>
               <Link
@@ -299,7 +411,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          {/* Editorial Layout: Spotlight Banner trái (slide-in left) + 3 Sản phẩm phải */}
+          {/* Editorial Layout: Spotlight Banner trái + 3 Sản phẩm phải */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
             {/* Spotlight Card */}
             <ScrollReveal direction="left" delay={0} className="h-full">
@@ -310,23 +422,23 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-terracotta block mb-1">
-                      Đặc quyền thư giãn
+                      Liệu pháp hương thơm vải
                     </span>
                     <h3 className="font-serif text-xl font-bold text-ink-dark leading-snug">
-                      Liệu Pháp Thơm Dịu Cho Phòng Ngủ
+                      Ướp Hương Áo Váy &amp; Ga Gối Phòng Ngủ
                     </h3>
                   </div>
                   <p className="text-xs text-ink/80 leading-relaxed">
-                    Chiết xuất từ hoa oải hương và hoa hồng tự nhiên giúp giảm căng thẳng sau ngày dài, xịt đệm ga gối tạo cảm giác thơm mát sạch lành.
+                    Chiết xuất hoa tự nhiên thẩm thấu êm ái vào thớ vải, không chỉ giúp trang phục luôn ngát hương mà còn ru sâu giấc ngủ khi xịt chăn gối.
                   </p>
                   <div className="space-y-1.5 pt-1 text-xs text-ink-dark font-medium">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-moss shrink-0" />
-                      <span>Xịt thơm gối &amp; rèm cửa</span>
+                      <span>Xịt thơm áo quần &amp; chăn ga gối</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-moss shrink-0" />
-                      <span>Không ố vàng vải sáng màu</span>
+                      <span>Cam kết không ố vàng áo trắng</span>
                     </div>
                   </div>
                 </div>
@@ -336,14 +448,14 @@ export default function HomePage() {
                     href="/dong-huong/hoa-diu-nhe"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-terracotta hover:text-terracotta-dark transition-colors"
                   >
-                    <span>Xem bộ sưu tập dòng Hoa</span>
+                    <span>Xem xịt thơm dòng Hoa</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* 3 Sản phẩm dòng Hoa (fade-up stagger) */}
+            {/* 3 Sản phẩm dòng Hoa */}
             <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-5">
               {hoaProducts.slice(0, 3).map((product, idx) => (
                 <ScrollReveal key={product.id} delay={idx * 70 + 80}>
@@ -362,10 +474,10 @@ export default function HomePage() {
             <div className="flex items-center justify-between mb-6 pb-3 border-b border-beige">
               <div>
                 <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block">
-                  Khơi Nguồn Năng Lượng
+                  Khử Mùi Thức Ăn &amp; Mồ Hôi Tức Thì
                 </span>
                 <h2 className="font-serif text-2xl font-bold text-moss-dark">
-                  Dòng Trái Cây — Tươi Mát &amp; Sảng Khoái
+                  Dòng Trái Cây — Xịt Thơm Quần Áo Đánh Bay Mùi Lẩu Nướng
                 </h2>
               </div>
               <Link
@@ -396,10 +508,10 @@ export default function HomePage() {
               <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#E2D4C6]">
                 <div>
                   <span className="text-xs font-bold text-[#76533E] uppercase tracking-wider block">
-                    Nốt Trầm Sang Trọng
+                    Nốt Trầm Sang Trọng Cho Vải Dày
                   </span>
                   <h2 className="font-serif text-2xl font-bold text-[#422C1D]">
-                    Dòng Ấm Nồng — Gỗ Đàn Hương &amp; Gia Vị
+                    Dòng Ấm Nồng — Xịt Thơm Áo Khoác, Áo Len &amp; Tủ Đồ Gỗ
                   </h2>
                 </div>
                 <Link
@@ -430,21 +542,21 @@ export default function HomePage() {
             <div className="relative rounded-2xl bg-linear-to-r from-[#5B6D3A] to-[#7B8D4E] text-white p-8 sm:p-12 overflow-hidden shadow-xs border border-moss-dark">
               <div className="max-w-2xl space-y-4 z-1 relative">
                 <span className="inline-block bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-md tracking-wider uppercase">
-                  Combo Tiết Kiệm 20%
+                  Combo Xịt Thơm Tiết Kiệm 20%
                 </span>
 
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-                  Trọn Bộ Sưu Tập Theo Dòng Hương Mộc Hương
+                  Trọn Bộ Sưu Tập Xịt Thơm Quần Áo Mộc Hương
                 </h2>
 
                 <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-light">
-                  Mỗi bộ sưu tập kết hợp hoàn hảo 3 nốt hương tương hỗ, giúp không gian sống luôn ngập tràn sự thư thái từ sớm mai thức giấc đến khi an giấc ban đêm.
+                  Mỗi bộ sưu tập kết hợp hoàn hảo 3 nốt hương tương hỗ, giúp trang phục của cả gia đình luôn ngập tràn sự thơm tho sạch sẽ từ sáng sớm đến tối muộn.
                 </p>
 
                 <div className="pt-2">
                   <Link href="/bo-suu-tap">
                     <Button variant="secondary" size="md">
-                      <span>Khám phá 4 bộ sưu tập</span>
+                      <span>Khám phá 4 bộ sưu tập xịt vải</span>
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </Button>
                   </Link>
@@ -462,10 +574,10 @@ export default function HomePage() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 pb-3 border-b border-beige">
               <div>
                 <span className="text-xs font-bold text-terracotta uppercase tracking-wider block">
-                  Gửi Trao Yêu Thương
+                  Gửi Trao Yêu Thương Tinh Tế
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-moss-dark">
-                  Set Quà Tặng Mộc Hương
+                  Set Quà Tặng Xịt Thơm Quần Áo Mộc Hương
                 </h2>
               </div>
               <Link
@@ -493,13 +605,13 @@ export default function HomePage() {
         <section className="bg-beige/60 py-14 sm:py-18 border-y border-beige">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-              {/* Cột hình ảnh minh họa 4 dòng hương và chai sản phẩm */}
+              {/* Cột hình ảnh minh họa chai xịt thơm quần áo */}
               <ScrollReveal scale={true} scaleFrom={0.96}>
                 <div className="space-y-4">
                   <div className="relative aspect-[16/9] sm:aspect-[1.85/1] rounded-2xl overflow-hidden border-2 border-white shadow-soft group">
                     <Image
                       src="/images/banner/banner.jpg"
-                      alt="Chai xịt thơm Mộc Hương và nguyên liệu thảo mộc thiên nhiên"
+                      alt="Chai xịt thơm quần áo Mộc Hương 30ml chiết xuất thiên nhiên"
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover object-center transform group-hover:scale-103 transition-transform duration-700 ease-out"
@@ -510,26 +622,26 @@ export default function HomePage() {
                       100%
                     </div>
                     <div>
-                      <p className="font-serif font-bold text-base sm:text-lg text-moss-dark">100% Thuần Khiết Tự Nhiên</p>
+                      <p className="font-serif font-bold text-base sm:text-lg text-moss-dark">An Toàn Cho Mọi Loại Vải</p>
                       <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">
-                        Chưng cất từ thảo mộc dược liệu đạt chuẩn Việt Nam, an tâm sử dụng mỗi ngày.
+                        Cam kết không ố vàng áo trắng, không gây kích ứng da, an toàn cho cả gia đình.
                       </p>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
 
-              {/* Cột thông tin câu chuyện (fade-up) */}
+              {/* Cột thông tin câu chuyện */}
               <ScrollReveal delay={80}>
                 <div className="space-y-5">
                   <span className="text-xs font-bold text-moss uppercase tracking-widest block">
-                    Triết Lý Thương Hiệu
+                    Định Vị Chuyên Biệt
                   </span>
                   <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-moss-dark leading-tight">
-                    Vì Sao Bạn Nên Chọn Mộc Hương?
+                    Vì Sao Bạn Nên Chọn Xịt Thơm Quần Áo Mộc Hương?
                   </h2>
                   <p className="text-xs sm:text-sm text-ink-muted leading-relaxed font-serif italic border-l-2 border-moss pl-3">
-                    &ldquo;Mộc Hương ra đời từ mong muốn mang đến những khoảnh khắc thư giãn giản đơn trong cuộc sống bận rộn hằng ngày...&rdquo;
+                    &ldquo;Mộc Hương chuyên sâu nghiên cứu giải pháp xịt thơm vải vóc từ thảo mộc thiên nhiên, giúp từng nếp áo của bạn luôn ngát hương thơm sạch như vừa đón nắng...&rdquo;
                   </p>
 
                   <div className="space-y-3.5 pt-2">
@@ -538,8 +650,8 @@ export default function HomePage() {
                         ✓
                       </div>
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-moss-dark">Không hương liệu nhân tạo</h3>
-                        <p className="text-xs text-ink-muted mt-0.5">Chỉ sử dụng tinh dầu nguyên chất, không chứa chất lưu hương độc hại hay phthalates.</p>
+                        <h3 className="text-xs sm:text-sm font-bold text-moss-dark">100% Không ố vàng vải sáng màu</h3>
+                        <p className="text-xs text-ink-muted mt-0.5">Sương mịn từ hydrosol thực vật và cồn mía lên men, khô nhanh sau 1 phút, an toàn cho áo sơ mi trắng, lụa và linen.</p>
                       </div>
                     </div>
 
@@ -548,8 +660,8 @@ export default function HomePage() {
                         ✓
                       </div>
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-moss-dark">Khử mùi tận gốc, không át mùi</h3>
-                        <p className="text-xs text-ink-muted mt-0.5">Cồn lên men tự nhiên phân hủy vi khuẩn gây mùi, giúp vải vóc thơm tho dễ chịu.</p>
+                        <h3 className="text-xs sm:text-sm font-bold text-moss-dark">Khử sạch mùi ẩm mốc &amp; dầu mỡ lẩu nướng</h3>
+                        <p className="text-xs text-ink-muted mt-0.5">Phân giải triệt để phân tử mùi hôi bám vào sợi vải thay vì chỉ dùng hương thơm lấn át, không gây nồng gắt.</p>
                       </div>
                     </div>
 
@@ -558,8 +670,8 @@ export default function HomePage() {
                         ✓
                       </div>
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-moss-dark">Dung tích 30ml bỏ túi tiện lợi</h3>
-                        <p className="text-xs text-ink-muted mt-0.5">Gọn gàng trong túi xách, ba lô hay hộc xe hơi — luôn sẵn sàng thơm mát bất cứ khi nào bạn cần.</p>
+                        <h3 className="text-xs sm:text-sm font-bold text-moss-dark">Dung tích 30ml tiện lợi bỏ túi mọi lúc</h3>
+                        <p className="text-xs text-ink-muted mt-0.5">Gọn gàng trong túi xách, ba lô hay hộc xe hơi — luôn sẵn sàng xịt làm mới trang phục chỉ với 2-3 nhát xịt.</p>
                       </div>
                     </div>
                   </div>
@@ -585,13 +697,13 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-xs font-bold text-moss uppercase tracking-widest block mb-2">
-                Khách Hàng Nói Gì?
+                Trải Nghiệm Thực Tế
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-moss-dark">
-                Cảm Nhận Từ Những Người Yêu Hương
+                Khách Hàng Nói Gì Về Hiệu Quả Xịt Thơm Quần Áo?
               </h2>
               <p className="text-xs sm:text-sm text-ink-muted mt-2">
-                Hơn 5.000+ khách hàng đã tin dùng sản phẩm xịt thơm Mộc Hương cho không gian gia đình.
+                Hơn 5.000+ khách hàng đã tin dùng xịt thơm quần áo Mộc Hương để khử sạch mùi ẩm mốc và giữ trang phục thơm tho.
               </p>
             </div>
           </ScrollReveal>
@@ -620,7 +732,7 @@ export default function HomePage() {
                       </div>
                       {review.verifiedPurchase && (
                         <span className="text-[10px] text-moss bg-moss/10 px-2 py-0.5 rounded-full font-bold">
-                          Đã mua hàng
+                          Đã mua xịt thơm
                         </span>
                       )}
                     </div>
@@ -632,17 +744,17 @@ export default function HomePage() {
         </section>
 
         {/* ========================================================================= */}
-        {/* KHỐI 13: BLOG / KIẾN THỨC MÙI HƯƠNG (Heading fade-up, 3 cards stagger)    */}
+        {/* KHỐI 13: BLOG / MẸO XỊT THƠM QUẦN ÁO                                      */}
         {/* ========================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
           <ScrollReveal>
             <div className="flex items-center justify-between mb-8 pb-3 border-b border-beige">
               <div>
                 <span className="text-xs font-bold text-moss uppercase tracking-wider block">
-                  Góc Thảo Mộc
+                  Cẩm Nang Chăm Sóc Vải
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-moss-dark">
-                  Kiến Thức &amp; Nghệ Thuật Mùi Hương
+                  Mẹo Dùng Xịt Thơm Quần Áo &amp; Giữ Nếp Trang Phục
                 </h2>
               </div>
               <Link

@@ -186,8 +186,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                   <span className="text-[9.5px] font-serif font-bold text-ink-dark block line-clamp-1 leading-tight mt-0.5">
                     {product.tenMuiHuong}
                   </span>
-                  <span className="text-[7px] text-ink-muted block mt-0.5 font-medium">
-                    {product.dungTich} · Tinh dầu
+                  <span className="text-[7px] text-moss-dark block mt-0.5 font-bold">
+                    Xịt thơm quần áo 30ml
                   </span>
                 </div>
 
@@ -213,8 +213,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div>
           {/* Phân loại & Rating */}
           <div className="flex items-center justify-between gap-1 mb-1.5">
-            <span className="text-[11px] font-medium text-moss-dark tracking-wide">
-              {product.dungTich} · Tự nhiên
+            <span className="text-[10px] sm:text-[10.5px] font-bold text-moss-dark tracking-wide uppercase bg-moss/12 px-2 py-0.5 rounded-md">
+              {product.laSetQuaTang ? "Set quà tặng" : `Xịt thơm quần áo · ${product.dungTich}`}
             </span>
             <div className="flex items-center gap-1 text-[11px] text-ink-muted">
               <RatingStars rating={product.danhGiaSao} size="sm" showNumber={false} />
@@ -224,10 +224,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </div>
 
-          {/* Scent Title: Tăng font-size thêm 1 bậc, font-weight 700 bold, độ tương phản sắc nét (1.3) */}
+          {/* Scent Title: Rõ ràng định vị xịt thơm quần áo */}
           <Link href={getProductUrl(product)}>
             <h3 className="font-serif font-bold text-base sm:text-lg text-ink-dark group-hover:text-moss transition-colors line-clamp-1 leading-snug">
-              {product.tenMuiHuong}
+              {product.laSetQuaTang ? product.tenMuiHuong : `Xịt Thơm Quần Áo ${product.tenMuiHuong}`}
             </h3>
           </Link>
 

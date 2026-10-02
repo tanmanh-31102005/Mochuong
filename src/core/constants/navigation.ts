@@ -8,33 +8,33 @@ export interface NavItem {
 export const MAIN_NAVIGATION: NavItem[] = [
   { label: "Trang chủ", href: "/" },
   {
-    label: "Sản phẩm",
+    label: "Xịt thơm quần áo",
     href: "/san-pham",
     children: [
       {
-        label: "Thảo mộc – Thanh lọc",
+        label: "Dòng Thảo mộc – Kháng khuẩn",
         href: "/dong-huong/thao-moc-thanh-loc",
-        desc: "Sả Chanh, Tràm gió, Tràm trắng, Hương thảo",
+        desc: "Khử sạch mùi ẩm mốc, kháng khuẩn sợi vải (Sả Chanh, Tràm gió...)",
       },
       {
-        label: "Hoa – Dịu nhẹ",
+        label: "Dòng Hoa – Dịu nhẹ",
         href: "/dong-huong/hoa-diu-nhe",
-        desc: "Hoa sen, Hoa nhài, Ngọc lan tây, Hoa ly, Hoa violet, Hoa anh đào",
+        desc: "Ướp hương áo quần & chăn gối nhẹ dịu (Hoa sen, Hoa nhài...)",
       },
       {
-        label: "Trái cây – Tươi mát",
+        label: "Dòng Trái cây – Tươi mát",
         href: "/dong-huong/trai-cay-tuoi-mat",
-        desc: "Bưởi, Quýt, Cam, Chanh, Dứa, Bạc Hà",
+        desc: "Khử mùi thức ăn & mồ hôi sảng khoái (Bưởi, Cam, Bạc hà...)",
       },
       {
-        label: "Ấm nồng – Cá tính",
+        label: "Dòng Ấm nồng – Cá tính",
         href: "/dong-huong/am-nong-ca-tinh",
-        desc: "Quế, Cà phê",
+        desc: "Hương gỗ sang trọng lưu giữ trên áo khoác (Quế, Cà phê...)",
       },
       {
-        label: "Tất cả sản phẩm",
+        label: "Tất cả xịt thơm quần áo",
         href: "/san-pham",
-        desc: "Xem trọn bộ 18 nốt hương xịt thơm 30ml",
+        desc: "Xem trọn bộ 18 nốt hương xịt thơm trang phục 30ml",
       },
     ],
   },
@@ -49,18 +49,18 @@ export const MAIN_NAVIGATION: NavItem[] = [
     badge: "Hot",
   },
   { label: "Về Mộc Hương", href: "/ve-chung-toi" },
-  { label: "Kiến thức mùi hương", href: "/blog" },
+  { label: "Mẹo xịt thơm vải", href: "/blog" },
   { label: "Liên hệ", href: "/lien-he" },
 ];
 
 export const FOOTER_LINKS = {
   fragranceLines: [
-    { label: "Dòng Thảo mộc – Thanh lọc", href: "/dong-huong/thao-moc-thanh-loc" },
-    { label: "Dòng Hoa – Dịu nhẹ", href: "/dong-huong/hoa-diu-nhe" },
-    { label: "Dòng Trái cây – Tươi mát", href: "/dong-huong/trai-cay-tuoi-mat" },
-    { label: "Dòng Ấm nồng – Cá tính", href: "/dong-huong/am-nong-ca-tinh" },
-    { label: "Bộ sưu tập trọn bộ", href: "/bo-suu-tap" },
-    { label: "Set quà tặng cao cấp", href: "/set-qua-tang" },
+    { label: "Xịt thơm Thảo mộc (Khử ẩm mốc)", href: "/dong-huong/thao-moc-thanh-loc" },
+    { label: "Xịt thơm Hoa (Dịu nhẹ êm ái)", href: "/dong-huong/hoa-diu-nhe" },
+    { label: "Xịt thơm Trái cây (Khử mùi lẩu nướng)", href: "/dong-huong/trai-cay-tuoi-mat" },
+    { label: "Xịt thơm Ấm nồng (Áo khoác mùa đông)", href: "/dong-huong/am-nong-ca-tinh" },
+    { label: "Bộ sưu tập xịt thơm trọn bộ", href: "/bo-suu-tap" },
+    { label: "Set quà tặng xịt vải cao cấp", href: "/set-qua-tang" },
   ],
   policies: [
     { label: "Chính sách đổi trả trong 7 ngày", href: "/chinh-sach/doi-tra" },

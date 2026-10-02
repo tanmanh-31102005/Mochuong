@@ -44,8 +44,8 @@ export const Footer: React.FC = () => {
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <p className="font-bold text-sm text-moss-dark">100% Tinh dầu thiên nhiên</p>
-              <p className="text-xs text-ink-muted">An toàn, lành tính, không hương liệu tổng hợp</p>
+              <p className="font-bold text-sm text-moss-dark">An toàn cho mọi loại vải</p>
+              <p className="text-xs text-ink-muted">100% không ố vàng áo trắng, lụa &amp; linen</p>
             </div>
           </div>
 
@@ -74,11 +74,11 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 py-12">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-block group" aria-label="Mộc Hương">
+            <Link href="/" className="inline-block group" aria-label="Mộc Hương — Xịt thơm quần áo">
               <div className="relative aspect-[754/513] h-[80px] sm:h-[95px]">
                 <Image
                   src="/images/logo/logo-clean.png"
-                  alt="Mộc Hương — Hương thơm từ thiên nhiên"
+                  alt="Mộc Hương — Xịt thơm quần áo thiên nhiên"
                   fill
                   className="object-contain object-left group-hover:scale-[1.03] transition-transform duration-200"
                 />
@@ -86,7 +86,7 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-sm text-ink-muted leading-relaxed max-w-md">
-              Mộc Hương ra đời từ mong muốn mang đến những khoảnh khắc thư giãn giản đơn trong cuộc sống bận rộn hằng ngày, qua 18 nốt hương xịt thơm 30ml thuần khiết từ thiên nhiên.
+              Mộc Hương — Thương hiệu chuyên sản xuất nước xịt thơm quần áo thiên nhiên 30ml. Khử sạch mùi ẩm mốc, giữ nếp vải thơm mát suốt cả ngày và an toàn tuyệt đối cho áo trắng cùng làn da nhạy cảm.
             </p>
 
             <div className="space-y-2 text-xs text-ink-muted pt-2">
@@ -127,7 +127,7 @@ export const Footer: React.FC = () => {
           {/* Dòng hương */}
           <div className="space-y-3">
             <h2 className="font-serif font-bold text-base text-moss-dark tracking-wide">
-              4 Dòng Hương (30ml)
+              Xịt Thơm Quần Áo (30ml)
             </h2>
             <ul className="space-y-2 text-sm">
               {FOOTER_LINKS.fragranceLines.map((link) => (

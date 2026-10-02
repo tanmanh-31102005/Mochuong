@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Mộc Hương",
-  fullName: "Mộc Hương — Hương Thơm Từ Thiên Nhiên",
-  tagline: "Thơm mát từng khoảnh khắc",
+  fullName: "Mộc Hương — Xịt Thơm Quần Áo Thiên Nhiên",
+  tagline: "Chuyên xịt thơm quần áo & khử mùi vải vóc",
   description:
-    "Xịt thơm quần áo, thơm phòng chiết xuất tinh dầu thiên nhiên nguyên chất. Lành tính, an toàn cho cả gia đình, lưu hương tinh tế và thư giãn tinh thần.",
+    "Thương hiệu chuyên xịt thơm quần áo chiết xuất tinh dầu thiên nhiên nguyên chất 30ml. Khử sạch mùi ẩm mốc, giữ nếp vải thơm mát suốt cả ngày, cam kết không ố vàng vải trắng.",
   url: "https://mochuong.vn",
   hotline: "0971 124 922",
   zalo: "0971 124 922",

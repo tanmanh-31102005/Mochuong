@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-terracotta-light animate-pulse" />
               <span>
-                Ưu đãi ra mắt: <strong>Miễn phí vận chuyển</strong> toàn quốc cho đơn từ 300.000đ | Nhập <strong>MOCHUONG10</strong> giảm 10%
+                🌿 Chuyên trang <strong>Xịt thơm quần áo thiên nhiên</strong> | Khử sạch ẩm mốc, giữ nếp vải thơm mát | Freeship từ 300K
               </span>
             </div>
             <div className="hidden md:flex items-center gap-4 text-xs font-semibold">
@@ -65,11 +65,11 @@ export const Header: React.FC = () => {
                 className="flex items-center gap-1.5 hover:text-white transition-colors"
               >
                 <Phone className="w-3 h-3 text-terracotta-light" />
-                <span>Hotline CSKH: {siteConfig.hotline}</span>
+                <span>Tư vấn mùi hương: {siteConfig.hotline}</span>
               </a>
               <span className="text-white/40">|</span>
               <Link href="/ve-chung-toi" className="hover:text-white transition-colors">
-                Câu chuyện thương hiệu
+                Câu chuyện Mộc Hương
               </Link>
             </div>
           </div>
@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
           - CỤM TIỆN ÍCH SÁT PHẢI (HOTLINE, YÊU THÍCH, TÀI KHOẢN, GIỎ HÀNG)
         */}
         <div className="w-full px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4 sm:gap-6 py-1.5">
-          {/* Cụm Logo SÁT MÉP TRÁI */}
+          {/* Cụm Logo SÁT MÉP TRÁI KÈM ĐỊNH VỊ THƯƠNG HIỆU */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
               type="button"
@@ -93,28 +93,36 @@ export const Header: React.FC = () => {
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
-            {/* Logo Mộc Hương kích thước cố định, sắc nét, không thay đổi kích cỡ khi cuộn */}
+            {/* Logo Mộc Hương kèm định vị rõ ràng: Xịt Thơm Quần Áo Thiên Nhiên */}
             <Link
               href="/"
-              className="group inline-flex items-center shrink-0"
-              aria-label="Mộc Hương — Hương thơm từ thiên nhiên"
+              className="group inline-flex items-center gap-2 sm:gap-3 shrink-0"
+              aria-label="Mộc Hương — Xịt thơm quần áo thiên nhiên"
             >
-              <div className="relative aspect-[754/513] h-[54px] sm:h-[60px] md:h-[64px]">
+              <div className="relative aspect-[754/513] h-[52px] sm:h-[58px] md:h-[62px]">
                 <Image
                   src="/images/logo/logo-clean.png"
-                  alt="Mộc Hương — Hương thơm từ thiên nhiên"
+                  alt="Mộc Hương — Xịt thơm quần áo thiên nhiên"
                   fill
                   className="object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
                   priority
                   sizes="(max-width: 640px) 140px, (max-width: 1024px) 180px, 200px"
                 />
               </div>
+              <div className="hidden sm:flex flex-col border-l-2 border-moss/30 pl-2.5 justify-center">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-moss-dark leading-tight">
+                  Xịt Thơm Quần Áo
+                </span>
+                <span className="text-[10px] text-terracotta font-bold leading-tight">
+                  Chiết xuất thiên nhiên 30ml
+                </span>
+              </div>
             </Link>
           </div>
 
           {/* THANH TÌM KIẾM Ở TRUNG TÂM — Căn giữa thẩm mỹ, gợi ý trực tiếp theo chữ cái */}
           <div className="hidden md:flex flex-1 max-w-xl xl:max-w-2xl mx-4 lg:mx-8">
-            <HeaderSearchBar placeholder="Bạn đang tìm gì hôm nay? (Oải hương, Sả chanh, Xịt thơm...)" />
+            <HeaderSearchBar placeholder="Tìm xịt thơm quần áo (Oải hương, Sả chanh, Khử ẩm mốc...)" />
           </div>
 
           {/* Cụm Tiện Ích SÁT MÉP PHẢI: Hotline CSKH, Yêu Thích, Tài Khoản, Giỏ Hàng */}
@@ -169,7 +177,7 @@ export const Header: React.FC = () => {
 
         {/* Thanh tìm kiếm trên thiết bị di động (hiển thị dưới Logo) */}
         <div className="md:hidden px-4 pb-2.5 pt-1">
-          <HeaderSearchBar placeholder="Tìm mùi hương (Oải hương, Sả chanh...)" />
+          <HeaderSearchBar placeholder="Tìm xịt thơm quần áo (Oải hương, Sả chanh...)" />
         </div>
 
         {/* HÀNG 2: Thanh Menu Điều Hướng Danh Mục — Thiết kế nhỏ xíu vừa vặn ôm sát dòng chữ */}

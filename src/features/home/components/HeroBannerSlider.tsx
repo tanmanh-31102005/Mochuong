@@ -39,50 +39,50 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "slide-1",
     image: "/images/banner/banner.jpg",
-    badge: "Xịt thơm quần áo & phòng 30ml",
+    badge: "Chuyên gia xịt thơm quần áo 30ml",
     badgeIconColor: "terracotta",
     headingLine1: "Xịt Thơm Quần Áo Thiên Nhiên",
-    headingLine2: "Thơm Mát Từng Khoảnh Khắc",
+    headingLine2: "Khử Mùi Ẩm Mốc — Lưu Hương Suốt Ngày",
     description:
-      "Bộ sưu tập xịt thơm quần áo chiết xuất tinh dầu thiên nhiên nguyên chất 30ml từ Mộc Hương. Khử sạch mùi ẩm mốc, giữ nếp vải thơm mát và tỏa hương dịu nhẹ suốt cả ngày.",
+      "Giải pháp ướp hương trang phục tự nhiên từ Mộc Hương 30ml. Khử sạch mùi ẩm mốc mùa mưa, mùi thức ăn lẩu nướng và mồ hôi trên từng sợi vải chỉ sau 30 giây, cam kết 100% không ố vàng áo trắng.",
     primaryCta: {
-      text: "Khám phá sản phẩm",
+      text: "Khám phá 18 mùi xịt quần áo",
       href: "/san-pham",
     },
     secondaryCta: {
-      text: "Xem bộ sưu tập",
+      text: "Xem 4 bộ sưu tập",
       href: "/bo-suu-tap",
     },
   },
   {
     id: "slide-2",
     image: "/images/banner/banner-2.jpg",
-    badge: "Ưu đãi ra mắt",
+    badge: "Ưu đãi tiết kiệm đến 15%",
     badgeIconColor: "terracotta",
-    headingLine1: "Combo 3 chai tự chọn",
-    headingLine2: "Tiết kiệm đến 15%",
+    headingLine1: "Combo 3 Chai Xịt Quần Áo Tự Chọn",
+    headingLine2: "Đổi Mùi Mỗi Ngày — Giá Chỉ 129K",
     description:
-      "Tự do phối 3 mùi hương yêu thích trong 18 nốt hương của Mộc Hương với giá ưu đãi cố định.",
+      "Tự do chọn 3 mùi xịt thơm quần áo yêu thích từ 18 nốt hương thảo mộc & hoa cỏ tự nhiên. Chai 30ml bỏ túi tiện lợi mang theo đi làm, đi tiệc hay du lịch.",
     primaryCta: {
-      text: "Xem combo",
+      text: "Chọn combo 3 chai (129K)",
       href: "/bo-suu-tap/combo-3-chai-tu-chon",
     },
     secondaryCta: {
-      text: "Khám phá sản phẩm",
+      text: "Xem tất cả sản phẩm",
       href: "/san-pham",
     },
   },
   {
     id: "slide-3",
     image: "/images/banner/banner-3.jpg",
-    badge: "Dành cho người thân yêu",
+    badge: "Món quà tinh tế & chỉn chu",
     badgeIconColor: "moss",
-    headingLine1: "Set quà tặng Mộc Hương",
-    headingLine2: "Tinh tế trong từng chi tiết",
+    headingLine1: "Set Quà Tặng Xịt Thơm Quần Áo",
+    headingLine2: "Nâng Niu Từng Nếp Áo Người Thương",
     description:
-      "Hộp quà chỉn chu, thiệp viết tay theo yêu cầu — món quà nhỏ mang nhiều ý nghĩa.",
+      "Hộp quà xịt thơm trang phục cao cấp thiết kế nắp gỗ mộc mạc, kèm thiệp viết tay theo yêu cầu — món quà tinh tế và thiết thực cho người thân yêu.",
     primaryCta: {
-      text: "Xem set quà tặng",
+      text: "Xem các set quà tặng",
       href: "/set-qua-tang",
     },
   },
@@ -306,14 +306,13 @@ export const HeroBannerSlider: React.FC = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. DẢI TRUST BAR MÀU XANH TINH GIẢN — ĐẶT SÁT ĐÁY MÀN HÌNH (CHỖ MÀU ĐỎ)   */}
-      {/* Đã xóa bớt các icon tròn rườm rà, giữ chữ gọn gàng, thanh lịch             */}
+      {/* 2. DẢI TRUST BAR MÀU XANH TINH GIẢN — TẬP TRUNG VÀO XỊT THƠM QUẦN ÁO      */}
       {/* ========================================================================= */}
       <div className="bg-[#344026] text-white border-t border-[#2a341f] w-full mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-center text-left">
             
-            {/* Mục 1: Đánh giá 4.9/5 (chỉ giữ ngôi sao đánh giá gọn gàng) */}
+            {/* Mục 1: Đánh giá */}
             <div className="flex items-center gap-2.5 lg:border-r lg:border-white/10 lg:pr-4">
               <div className="flex text-amber-400 gap-0.5 shrink-0">
                 {[...Array(5)].map((_, i) => (
@@ -321,32 +320,32 @@ export const HeroBannerSlider: React.FC = () => {
                 ))}
               </div>
               <div className="leading-tight">
-                <div className="text-xs sm:text-sm font-extrabold text-white">4.9/5</div>
-                <div className="text-[11px] text-white/70">Đánh giá hài lòng</div>
+                <div className="text-xs sm:text-sm font-extrabold text-white">4.9/5 Sao</div>
+                <div className="text-[11px] text-white/70">5.000+ Khách tin dùng</div>
               </div>
             </div>
 
-            {/* Mục 2: 5.000+ Khách hàng (đã xóa icon tròn) */}
+            {/* Mục 2: Không ố vàng vải */}
             <div className="lg:border-r lg:border-white/10 lg:pr-4 leading-tight">
-              <div className="text-xs sm:text-sm font-bold text-white">5.000+</div>
-              <div className="text-[11px] text-white/70">Khách hàng tin chọn</div>
+              <div className="text-xs sm:text-sm font-bold text-white">Không ố vàng vải</div>
+              <div className="text-[11px] text-white/70">An toàn áo trắng &amp; lụa</div>
             </div>
 
-            {/* Mục 3: Giá tốt tận xưởng (đã xóa icon tròn) */}
+            {/* Mục 3: Khử ẩm mốc tận gốc */}
             <div className="lg:border-r lg:border-white/10 lg:pr-4 leading-tight">
-              <div className="text-xs sm:text-sm font-bold text-white">Giá tốt tận xưởng</div>
-              <div className="text-[11px] text-white/70">Không qua trung gian</div>
+              <div className="text-xs sm:text-sm font-bold text-white">Khử ẩm mốc tận gốc</div>
+              <div className="text-[11px] text-white/70">Cồn mía lên men tự nhiên</div>
             </div>
 
-            {/* Mục 4: Đóng gói chỉn chu (đã xóa icon tròn) */}
+            {/* Mục 4: Bỏ túi 30ml */}
             <div className="lg:border-r lg:border-white/10 lg:pr-4 leading-tight">
-              <div className="text-xs sm:text-sm font-bold text-white">Đóng gói chỉn chu</div>
-              <div className="text-[11px] text-white/70">Hộp quà &amp; chống sốc</div>
+              <div className="text-xs sm:text-sm font-bold text-white">Bỏ túi 30ml tiện lợi</div>
+              <div className="text-[11px] text-white/70">Xịt thơm áo mọi lúc</div>
             </div>
 
-            {/* Mục 5: Giao hàng tận nơi (đã xóa icon tròn) */}
+            {/* Mục 5: Giao hàng toàn quốc */}
             <div className="col-span-2 md:col-span-1 leading-tight">
-              <div className="text-xs sm:text-sm font-bold text-white">Giao hàng tận nơi</div>
+              <div className="text-xs sm:text-sm font-bold text-white">Giao hàng toàn quốc</div>
               <div className="text-[11px] text-white/70">Freeship từ 300k</div>
             </div>
 

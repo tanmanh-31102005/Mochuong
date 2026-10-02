@@ -120,13 +120,13 @@ function AllProductsContent() {
         {/* Banner đầu trang */}
         <div className="bg-white p-6 sm:p-9 rounded-2xl border border-[#E3DACB] mb-8 text-center shadow-[0_10px_30px_rgba(74,74,74,0.05)]">
           <span className="text-xs font-bold text-moss-dark uppercase tracking-widest block mb-2">
-            Bộ Sưu Tập Toàn Diện
+            Bộ Sưu Tập Xịt Thơm Quần Áo Thiên Nhiên 30ml
           </span>
           <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-moss-dark mb-3">
-            Tất Cả Sản Phẩm Mộc Hương
+            Xịt Thơm Quần Áo &amp; Vải Vóc Mộc Hương
           </h1>
           <p className="text-xs sm:text-sm text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Khám phá 16+ nốt hương xịt thơm 30ml nguyên chất từ thiên nhiên, combo bộ sưu tập và set quà tặng chỉn chu.
+            Khám phá 18 nốt hương xịt thơm quần áo chiết xuất thảo mộc &amp; hoa cỏ nguyên chất 30ml. Khử sạch mùi ẩm mốc, giữ nếp vải thơm mát và cam kết không ố vàng áo trắng.
           </p>
 
           {/* Type Switcher Tabs */}
@@ -153,7 +153,7 @@ function AllProductsContent() {
                   : "text-ink/80 hover:text-ink hover:bg-white"
               }`}
             >
-              <span>Chai lẻ 30ml ({singleCount})</span>
+              <span>Xịt thơm lẻ 30ml ({singleCount})</span>
             </button>
 
             <button
